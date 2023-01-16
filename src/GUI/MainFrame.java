@@ -1,32 +1,7 @@
 package GUI;
 
-import java.awt.EventQueue;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.SpringLayout;
-import java.awt.GridLayout;
-import java.awt.Image;
-
-import net.miginfocom.swing.MigLayout;
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.SystemColor;
-
-
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.Icon;
-import javax.swing.JEditorPane;
-import javax.swing.JTextArea;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.*;
+import java.awt.*;
 
 public class MainFrame extends JFrame {
 	private JTextField Comment_Text;
@@ -165,5 +140,3 @@ public class MainFrame extends JFrame {
 		   return Comment_Button;
 	   }
 }
-
-
