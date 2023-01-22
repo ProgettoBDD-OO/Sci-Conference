@@ -11,10 +11,8 @@ public class Main {
 			public void run() {
 				try {
 				
-	                MainFrame vista = new MainFrame();
-
-	                Controller controllore = new Controller(vista);
-	                
+	                MainFrame Vista = new MainFrame("GUI Science Conference");
+	                Controller Controllore = new Controller(Vista);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
