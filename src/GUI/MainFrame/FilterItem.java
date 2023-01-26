@@ -1,6 +1,5 @@
-package Menu;
+package GUI.MainFrame;
 import javax.swing.*;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -13,26 +12,12 @@ public class FilterItem extends JPanel {
 	
 	public FilterItem(String FilterItemName, Color ColoreTesto,  FilterItem... subMenu) {
 				
-		setBackground(new Color(240, 240, 220));
-		
-		addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				if(Showing) {
-					hideMenu();
-					Showing = false;
-				} else {
-					showMenu();
-					Showing = true;
-				}
-			}
-		});
-		
+		setBackground(new Color(242, 243, 244));
 		setLayout(null);
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(0, 35, 120, 2);
-		add(separator);
+		JSeparator FilterSeparator = new JSeparator();
+		FilterSeparator.setBounds(10, 35, 100, 2);
+		add(FilterSeparator);
 		
 		JLabel FilterItemLbl = new JLabel("MenuItem");
 		FilterItemLbl.setHorizontalAlignment(SwingConstants.CENTER);
@@ -49,7 +34,21 @@ public class FilterItem extends JPanel {
 			this.SubMenu.add(subMenu[i]);
 			subMenu[i].setVisible(false);
 		}
+		
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				if(Showing) {
+					hideMenu();
+					Showing = false;
+				} else {
+					showMenu();
+					Showing = true;
+				}
+			}
+		});
 	}
+	
 
 	public ArrayList<FilterItem> getSubMenu() {
 		return SubMenu;
@@ -80,9 +79,7 @@ public class FilterItem extends JPanel {
 	private void sleep() {
 		try {
 			Thread.sleep(20);
-		} catch(Exception e) {
-			
-		}
+		} catch(Exception e) {}
 	}
 }
 
