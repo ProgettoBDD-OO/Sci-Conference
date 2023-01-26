@@ -23,7 +23,7 @@ public class MainFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
-		ImageIcon IconLogo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\miniLogo.png");
+		ImageIcon IconLogo = new ImageIcon("C:\\Users\\bottf\\Documenti\\miniLogo.png");
 		Image IconAppLogo = IconLogo.getImage();
 		setIconImage(IconAppLogo);
 		
@@ -122,7 +122,7 @@ public class MainFrame extends JFrame {
 		LogoConteiner.setHorizontalAlignment(SwingConstants.CENTER);
 		
 
-		ImageIcon Logo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\logo.png");
+		ImageIcon Logo = new ImageIcon("C:\\Users\\bottf\\Documenti\\logo.png");
 		Image img = Logo.getImage();
 		Image imgScale = img.getScaledInstance(LogoConteiner.getWidth(), LogoConteiner.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);

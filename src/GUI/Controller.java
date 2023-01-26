@@ -9,4 +9,10 @@ public class Controller {
     public Controller(MainFrame Vista) {
         this.View = Vista;
     }
+    
+    
+    
+    
+    
+    
 }
