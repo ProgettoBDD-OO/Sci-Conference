@@ -12,11 +12,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame {
+	private boolean ShowFilter = false;
 	private JTextField SearchBar;
 	private JPanel Menus;
-	private boolean ShowFilter = false;
+	private JButton AddIdeaBtn;
+	private JButton Calendario;
+	private JButton LogInBtn;
+	private JButton SignUpBtn;
 
 	public MainFrame(String Titolo) {
+		setTitle(Titolo);
 		setBounds(100, 100, 1200, 700);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1500, 800);
@@ -71,10 +76,16 @@ public class MainFrame extends JFrame {
 		ConfFebbraio.setBackground(new Color(240, 241, 242));
 		SxPanel.add(ConfFebbraio, "cell 0 4,grow");
 		
-		JLabel Calendario = new JLabel("Mostra tutto");
+		Calendario = new JButton("Mostra tutto");
+		Calendario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		Calendario.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		Calendario.setForeground(new Color(0, 0, 200));
 		Calendario.setHorizontalAlignment(SwingConstants.RIGHT);
+		Calendario.setFocusPainted(false);
+		Calendario.setMargin(new Insets(0, 0, 0, 0));
+		Calendario.setContentAreaFilled(false);
+		Calendario.setBorderPainted(false);
+		Calendario.setOpaque(false);
 		SxPanel.add(Calendario, "cell 0 5,alignx center");
 		
 		
@@ -98,11 +109,17 @@ public class MainFrame extends JFrame {
 		Bacheca.setMargin(new Insets(5, 5, 5, 5));
 		DxPanel.add(Bacheca, "cell 0 1,grow");
 		
-		JLabel GetIdeaLbl = new JLabel("Aggiungi la tua idea");
-		GetIdeaLbl.setForeground(new Color(0, 0, 220));
-		GetIdeaLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		GetIdeaLbl.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		DxPanel.add(GetIdeaLbl, "cell 0 2,alignx center,aligny center");
+		AddIdeaBtn = new JButton("Aggiungi la tua idea");
+		AddIdeaBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		AddIdeaBtn.setForeground(new Color(0, 0, 220));
+		AddIdeaBtn.setHorizontalAlignment(SwingConstants.CENTER);
+		AddIdeaBtn.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		AddIdeaBtn.setFocusPainted(false);
+		AddIdeaBtn.setMargin(new Insets(0, 0, 0, 0));
+		AddIdeaBtn.setContentAreaFilled(false);
+		AddIdeaBtn.setBorderPainted(false);
+		AddIdeaBtn.setOpaque(false);
+		DxPanel.add(AddIdeaBtn, "cell 0 2,alignx center,aligny center");
 		
 		
 		
@@ -146,13 +163,13 @@ public class MainFrame extends JFrame {
 		MainPanel.add(NorthPanel, BorderLayout.NORTH);
 		NorthPanel.setLayout(new MigLayout("wrap, fill", "[200:n:320]20[]20[200:n:320,grow]", "[][:200px:200px,grow][]"));
 		
-		JButton LogInBtn = new JButton("Accedi");
+		LogInBtn = new JButton("Accedi");
 		LogInBtn.setMinimumSize(new Dimension(100, 30));
 		LogInBtn.setMaximumSize(new Dimension(110, 40));
 		LogInBtn.setPreferredSize(new Dimension(110, 30));
 		NorthPanel.add(LogInBtn, "flowx,cell 0 0,alignx left,aligny center");
 		
-		JButton SignUpBtn = new JButton("Registrati");
+		SignUpBtn = new JButton("Registrati");
 		SignUpBtn.setMinimumSize(new Dimension(100, 30));
 		SignUpBtn.setMaximumSize(new Dimension(110, 30));
 		SignUpBtn.setPreferredSize(new Dimension(110, 30));
@@ -168,6 +185,7 @@ public class MainFrame extends JFrame {
         NorthPanel.add(FilterScrollPane, "cell 2 1,alignx left,growy");
         
         Menus = new JPanel();
+        Menus.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         Menus.setMaximumSize(new Dimension(120, 32767));
         Menus.setBackground(new Color(242, 243, 244));
         Menus.setLayout(new BoxLayout(Menus, BoxLayout.Y_AXIS));
@@ -233,5 +251,21 @@ public class MainFrame extends JFrame {
 		}
 		
 		Menus.revalidate();
+	}
+	
+	public JButton getAddIdeaBtn() {
+		return AddIdeaBtn;
+	}
+	
+	public JButton getCalendario() {
+		return Calendario;
+	}
+	
+	public JButton getLogInBtn() {
+		return LogInBtn;
+	}
+	
+	public JButton getSignUpBtn() {
+		return SignUpBtn;
 	}
 }
