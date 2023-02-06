@@ -1,12 +1,143 @@
 package GUI;
+import javax.swing.*;
 import java.awt.*;
-
-import GUI.MainFrame.MainFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Controller {
 	private MainFrame View;
+	private CommentoBachecaFrame ViewCommentoBacheca;
+	private CalendarioFrame ViewCalendario;
+	private LogInFrame ViewLogIn; 
+	private SignUpFrame ViewSignUp;
 	
-    public Controller(MainFrame Vista) {
+    public Controller(MainFrame Vista, CommentoBachecaFrame VistaCB, CalendarioFrame VistaC, LogInFrame VistaL, SignUpFrame VistaS) {
         this.View = Vista;
+        this.ViewCommentoBacheca = VistaCB;
+        this.ViewCalendario = VistaC;
+        this.ViewLogIn = VistaL;
+        this.ViewSignUp = VistaS;
+    }
+    
+    public void assegnaGestori() {
+    	
+    	ActionListener gestoreCommentoBacheca;
+    	ActionListener gestoreIndietroCommento;
+    	ActionListener gestoreTemiBtn;
+    	
+    	ActionListener gestoreCalendario;
+    	ActionListener gestoreIndietroCalendario;
+    	
+    	ActionListener gestoreLogIn;
+    	ActionListener gestoreAnnullaLogInBtn;
+    	
+    	ActionListener gestoreSignUp;
+    	ActionListener gestoreAnnullaSignUpBtn;
+    	
+    	
+//_____________________________________________Passaggio da MainFrame a CommentoBachecaFrame
+    	
+    	gestoreCommentoBacheca = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				View.setVisible(false);
+				ViewCommentoBacheca.setVisible(true);
+			}
+		};
+		
+		View.getAddIdeaBtn().addActionListener(gestoreCommentoBacheca);
+    	
+		
+//_____________________________________________Ritorno a MainFrame da CommentoBachecaFrame
+		
+		gestoreIndietroCommento = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ViewCommentoBacheca.setVisible(false);
+				View.setVisible(true);
+				
+			}
+		};
+    	
+    	ViewCommentoBacheca.getIndietroCommentoBachecaBtn().addActionListener(gestoreIndietroCommento);
+    	
+    	
+//_____________________________________________Passaggio da MainFrame a CalendarioFrame
+    	
+    	gestoreCalendario = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				View.setVisible(false);
+				ViewCalendario.setVisible(true);
+			}
+		};
+		
+		View.getCalendario().addActionListener(gestoreCalendario);
+		
+		
+//_____________________________________________Ritorno a MainFrame da CalendarioFrame
+		
+		gestoreIndietroCalendario = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ViewCalendario.setVisible(false);
+				View.setVisible(true);
+						
+			}
+		};
+		    	
+		 ViewCalendario.getIndietroCalendarioBtn().addActionListener(gestoreIndietroCalendario);
+		    
+		 
+//_____________________________________________Passaggio da MainFrame a LogInFrame
+		    	
+		  gestoreLogIn = new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				View.setVisible(false);
+				ViewLogIn.setVisible(true);
+			}
+		};
+				
+		View.getLogInBtn().addActionListener(gestoreLogIn);    	
+				
+		
+//_____________________________________________Ritorno a MainFrame da LogInFrame
+				
+		gestoreAnnullaLogInBtn = new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ViewLogIn.setVisible(false);
+				View.setVisible(true);						
+			}
+		};
+		    	
+		ViewLogIn.getAnnullaLogInBtn().addActionListener(gestoreAnnullaLogInBtn);
+		
+		
+//_____________________________________________Passaggio da MainFrame a SignUpFrame
+    	
+		  gestoreSignUp = new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				View.setVisible(false);
+				ViewSignUp.setVisible(true);
+			}
+		};
+				
+		View.getSignUpBtn().addActionListener(gestoreSignUp); 
+		
+		
+//_____________________________________________Ritorno a MainFrame da SignUpFrame
+		
+		gestoreAnnullaSignUpBtn = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ViewSignUp.setVisible(false);
+				View.setVisible(true);						
+			}
+		};
+		    	
+		ViewSignUp.getAnnullaSignUpBtn().addActionListener(gestoreAnnullaSignUpBtn);
     }
 }
