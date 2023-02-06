@@ -1,8 +1,28 @@
 package GUI;
 
+<<<<<<< HEAD
 import javax.swing.*;
 import java.awt.*;
 import net.miginfocom.swing.MigLayout;
+=======
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Image;
+import java.awt.Rectangle;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import net.miginfocom.swing.MigLayout;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+>>>>>>> ad49237d0132d715413b07616f00ba071df1a6fa
 
 public class SignUpFrame extends JFrame {
 	private JTextField emailFieldSignUp;
@@ -79,4 +99,9 @@ public class SignUpFrame extends JFrame {
 	public JButton getAnnullaSignUpBtn() {
 		return annullaSignUpBtn;
 	}
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> ad49237d0132d715413b07616f00ba071df1a6fa
 }
