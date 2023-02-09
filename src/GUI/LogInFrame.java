@@ -1,10 +1,10 @@
 package GUI;
 
-<<<<<<< HEAD
+
 import javax.swing.*;
 import java.awt.*;
 import net.miginfocom.swing.MigLayout;
-=======
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -22,7 +22,6 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
->>>>>>> ad49237d0132d715413b07616f00ba071df1a6fa
 
 public class LogInFrame extends JFrame {
 	private JTextField emailFieldLogIn;
