@@ -32,9 +32,14 @@ public class CommentoBachecaFrame extends JFrame {
 		setVisible(false);
 		setResizable(false);
 		
-		ImageIcon IconLogo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\miniLogo.png");
+		ImageIcon IconLogo = new ImageIcon("C:\\Users\\bottf\\Documenti\\miniLogo.png");
 		Image IconAppLogo = IconLogo.getImage();
 		setIconImage(IconAppLogo);
+		
+		ImageIcon WhiteLogo = new ImageIcon("C:\\Users\\bottf\\Documenti\\miniLogoWhite.png");
+        Image img = WhiteLogo.getImage();
+        Image imgScale = img.getScaledInstance(28, 28, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
 		
 		JPanel MainPanel = new JPanel();
 		MainPanel.setBorder(new EmptyBorder(10, 7, 7, 7));
@@ -122,6 +127,7 @@ public class CommentoBachecaFrame extends JFrame {
 				TemaAmbienteBtn = new JToggleButton("");
 				TemaAmbienteBtn.setBackground(new Color(0, 200, 0));
 				TemaAmbienteBtn.setPreferredSize(new Dimension(33, 33));
+				TemaAmbienteBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaAmbienteBtn, "cell 0 0, alignx center, aligny center");
 				
 				JLabel TemaAmbienteLbl = new JLabel("Ambiente");
@@ -132,6 +138,7 @@ public class CommentoBachecaFrame extends JFrame {
 				TemaChimicaBtn = new JToggleButton("");
 				TemaChimicaBtn.setBackground(new Color(0, 200, 255));
 				TemaChimicaBtn.setPreferredSize(new Dimension(33, 33));
+				TemaChimicaBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaChimicaBtn, "cell 2 0, alignx center, aligny center");
 				
 				JLabel TemaChimicaLbl = new JLabel("Chimica");
@@ -142,6 +149,7 @@ public class CommentoBachecaFrame extends JFrame {
 				JToggleButton TemaBiologiaBtn = new JToggleButton("");
 				TemaBiologiaBtn.setBackground(new Color(0, 128, 0));
 				TemaBiologiaBtn.setPreferredSize(new Dimension(33, 33));
+				TemaBiologiaBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaBiologiaBtn, "cell 4 0,alignx center,aligny center");
 				
 				JLabel TemaBiologiaLbl = new JLabel("Biologia");
@@ -152,6 +160,7 @@ public class CommentoBachecaFrame extends JFrame {
 				TemaSostenibilitàBtn = new JToggleButton("");
 				TemaSostenibilitàBtn.setBackground(new Color(240, 210, 0));
 				TemaSostenibilitàBtn.setPreferredSize(new Dimension(33, 33));
+				TemaSostenibilitàBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaSostenibilitàBtn, "cell 0 1, alignx center, aligny center");
 				
 				JLabel TemaSostenibilitàLbl = new JLabel("Sostenibilità");
@@ -162,6 +171,7 @@ public class CommentoBachecaFrame extends JFrame {
 				JToggleButton TemaInformaticaBtn = new JToggleButton("");
 				TemaInformaticaBtn.setBackground(new Color(0, 100, 255));
 				TemaInformaticaBtn.setPreferredSize(new Dimension(33, 33));
+				TemaInformaticaBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaInformaticaBtn, "cell 2 1,alignx center,aligny center");
 				
 				JLabel TemaInformaticaLbl = new JLabel("Informatica");
@@ -172,6 +182,7 @@ public class CommentoBachecaFrame extends JFrame {
 				JToggleButton TemaAnatomiaBtn = new JToggleButton("");
 				TemaAnatomiaBtn.setBackground(new Color(250, 88, 80));
 				TemaAnatomiaBtn.setPreferredSize(new Dimension(33, 33));
+				TemaAnatomiaBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaAnatomiaBtn, "cell 4 1,alignx center,aligny center");
 				
 				JLabel TemaAnatomiaLbl = new JLabel("Anatomia");
@@ -182,6 +193,7 @@ public class CommentoBachecaFrame extends JFrame {
 				TemaFisicaBtn = new JToggleButton("");
 				TemaFisicaBtn.setBackground(new Color(250, 80, 0));
 				TemaFisicaBtn.setPreferredSize(new Dimension(33, 33));
+				TemaFisicaBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaFisicaBtn, "cell 0 2, alignx center, aligny center");
 				
 				JLabel TemaFisicaLbl = new JLabel("Fisica");
@@ -192,6 +204,7 @@ public class CommentoBachecaFrame extends JFrame {
 				TemaMatematicaBtn = new JToggleButton("");
 				TemaMatematicaBtn.setBackground(new Color(0, 0, 200));
 				TemaMatematicaBtn.setPreferredSize(new Dimension(33, 33));
+				TemaMatematicaBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaMatematicaBtn, "cell 2 2,alignx center,aligny center");
 				
 				JLabel TemaMatematicaLbl = new JLabel("Matematica");
@@ -202,6 +215,7 @@ public class CommentoBachecaFrame extends JFrame {
 				JToggleButton TemaPsicologiaBtn = new JToggleButton("");
 				TemaPsicologiaBtn.setBackground(new Color(255, 0, 128));
 				TemaPsicologiaBtn.setPreferredSize(new Dimension(33, 33));
+				TemaPsicologiaBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaPsicologiaBtn, "cell 4 2,alignx center,aligny center");
 				
 				JLabel TemaPsicologiaLbl = new JLabel("Psicologia");
@@ -212,6 +226,7 @@ public class CommentoBachecaFrame extends JFrame {
 				TemaGeologiaBtn = new JToggleButton("");
 				TemaGeologiaBtn.setBackground(new Color(180, 100, 40));
 				TemaGeologiaBtn.setPreferredSize(new Dimension(33, 33));
+				TemaGeologiaBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaGeologiaBtn, "cell 0 3, alignx center, aligny center");
 				
 				JLabel TemaGeologiaLbl = new JLabel("Geologia");
@@ -222,6 +237,7 @@ public class CommentoBachecaFrame extends JFrame {
 				TemaAstrologiaBtn = new JToggleButton("");
 				TemaAstrologiaBtn.setBackground(new Color(30, 30, 120));
 				TemaAstrologiaBtn.setPreferredSize(new Dimension(33, 33));
+				TemaAstrologiaBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaAstrologiaBtn, "cell 2 3,alignx center,aligny center");
 				
 				JLabel TemaAstrologiaLbl = new JLabel("Astrologia");
@@ -232,6 +248,7 @@ public class CommentoBachecaFrame extends JFrame {
 				TemaAltroBtn = new JToggleButton("");
 				TemaAltroBtn.setBackground(new Color(125, 130, 135));
 				TemaAltroBtn.setPreferredSize(new Dimension(33, 33));
+				TemaAltroBtn.setIcon(scaledIcon);
 				TemiPanel.add(TemaAltroBtn, "cell 4 3,alignx center,aligny center");
 				
 				JLabel TemaAltroLbl = new JLabel("Altro");

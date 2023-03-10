@@ -6,7 +6,7 @@ import java.util.Date;
 import java.awt.Font;
 
 
-public class CalendarCell extends JButton{
+public class CalendarCell extends JTextArea{
 	
 	private Date Data;
 	private boolean Title;
@@ -14,8 +14,7 @@ public class CalendarCell extends JButton{
 	public CalendarCell() {
 		setBackground(new Color(255, 255, 255));
 		setFont(new Font("Tahoma", Font.PLAIN, 16));
-		setContentAreaFilled(false);
-		setHorizontalAlignment(JLabel.CENTER);
+		setEditable(false);
 	}
 	
 	
@@ -31,6 +30,10 @@ public class CalendarCell extends JButton{
 		this.Data = Data;
 	}
 	
+	public Date getData() {
+		return Data;
+	}
+	
 	public void currentMonth(boolean Act) {
 		if(Act) {
 			setForeground(new Color(20, 30, 40));
@@ -38,4 +41,6 @@ public class CalendarCell extends JButton{
 			setForeground(new Color(200, 205, 210));
 		}
 	}
+	
+	
 }

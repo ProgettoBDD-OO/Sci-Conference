@@ -16,7 +16,7 @@ public class CalendarMainFrame extends JFrame{
 			setLocationRelativeTo(null);
 			setVisible(false);
 			
-			ImageIcon IconLogo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\miniLogo.png");
+			ImageIcon IconLogo = new ImageIcon("C:\\Users\\bottf\\Documenti\\miniLogo.png");
 			Image IconAppLogo = IconLogo.getImage();
 			setIconImage(IconAppLogo);
 			

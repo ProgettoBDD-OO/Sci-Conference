@@ -1,92 +1,216 @@
 package GUI;
 
-
-import javax.swing.*;
 import java.awt.*;
 import net.miginfocom.swing.MigLayout;
-
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Image;
-import java.awt.Rectangle;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import net.miginfocom.swing.MigLayout;
-import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.border.MatteBorder;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
 public class LogInFrame extends JFrame {
-	private JTextField emailFieldLogIn;
-	private JPasswordField passwordFieldLogIn;
-	private JButton annullaLogInBtn;
+	
+	private JButton SignUpSwitchBtn;
+	private JButton AnnullaLogInBtn;
+	private JButton ConfermaBtn;
+	private JTextField UsernameEmailTxt;
+	private JPasswordField PasswordTxt;
+	private JLabel UsernameEmailLbl;
+	private JLabel PasswordLbl;
 
 	public LogInFrame(String Titolo) {
 		setTitle(Titolo);
 		setBounds(100, 100, 1200, 700);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(500, 400);
+		setSize(600, 700);
 		setLocationRelativeTo(null);
 		setVisible(false);
+		
 		
 		ImageIcon IconLogo = new ImageIcon("C:\\Users\\bottf\\Documenti\\miniLogo.png");
 		Image IconAppLogo = IconLogo.getImage();
 		setIconImage(IconAppLogo);
 		
-		JPanel LogInPanel = new JPanel();
-		LogInPanel.setBackground(new Color(232, 232, 232));
-		setContentPane(LogInPanel);
-		LogInPanel.setLayout(new MigLayout("wrap,fill", "[][grow]", "[::100px][::50px]2[::57.00px,grow]2[][][][][::180px,grow][::200px][]"));
 		
-		JLabel LogoLogIn = new JLabel("");
-		LogInPanel.add(LogoLogIn, "cell 0 0 2 1,alignx center,aligny center");
-		LogoLogIn.setPreferredSize(new Dimension(300, 140));
-		LogoLogIn.setBounds(new Rectangle(300, 11, 300, 80));
+		JPanel MainPanel = new JPanel();
+		MainPanel.setBackground(new Color(246, 247, 248));
+		setContentPane(MainPanel);
+		MainPanel.setLayout(new BorderLayout(0, 0));
 		
-		ImageIcon LogoL = new ImageIcon("C:\\Users\\bottf\\Documenti\\logo.png");
-		Image img = LogoL.getImage();
-		Image imgScale = img.getScaledInstance(LogoLogIn.getWidth(), LogoLogIn.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(imgScale);
-		LogoLogIn.setIcon(scaledIcon);
 		
-		JLabel CredenzialiTestoLogIn = new JLabel("Inserisci le tue credenziali per effettuare il Log-In");
-		CredenzialiTestoLogIn.setHorizontalAlignment(SwingConstants.CENTER);
-		CredenzialiTestoLogIn.setFont(new Font("Tahoma", Font.BOLD, 15));
-		LogInPanel.add(CredenzialiTestoLogIn, "cell 0 1 2 1,alignx center");
 		
-		JLabel emailLblLogIn = new JLabel("E-mail:");
-		emailLblLogIn.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		LogInPanel.add(emailLblLogIn, "cell 0 3,alignx trailing");
+		JPanel NorthPanel = new JPanel();
+		NorthPanel.setBackground(new Color(246, 247, 248));
+		NorthPanel.setPreferredSize(new Dimension(10, 150));
+		MainPanel.add(NorthPanel, BorderLayout.NORTH);
+		NorthPanel.setLayout(new BorderLayout(0, 0));
 		
-		emailFieldLogIn = new JTextField();
-		LogInPanel.add(emailFieldLogIn, "cell 1 3,growx");
-		emailFieldLogIn.setColumns(10);
+			JLabel LogInLbl = new JLabel("Accedi");
+			LogInLbl.setBackground(new Color(246, 247, 248));
+			LogInLbl.setHorizontalAlignment(SwingConstants.CENTER);
+			LogInLbl.setForeground(new Color(138, 140, 142));
+			LogInLbl.setFont(new Font("Tahoma", Font.PLAIN, 30));
+			NorthPanel.add(LogInLbl, BorderLayout.CENTER);
+			
 		
-		JLabel passwordLblLogIn = new JLabel("Password:");
-		passwordLblLogIn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		LogInPanel.add(passwordLblLogIn, "cell 0 5,alignx trailing");
-		
-		passwordFieldLogIn = new JPasswordField();
-		LogInPanel.add(passwordFieldLogIn, "cell 1 5,growx");
-		
-		JButton logInConfermaBtn = new JButton("Log-In");
-		logInConfermaBtn.setFont(new Font("Tahoma", Font.BOLD, 14));
-		LogInPanel.add(logInConfermaBtn, "cell 0 7 2 1,alignx center");
-		
-		annullaLogInBtn = new JButton("Annulla");
-		annullaLogInBtn.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		LogInPanel.add(annullaLogInBtn, "flowx,cell 0 8,alignx center");
 
+		JPanel CentrPanel = new JPanel();
+		CentrPanel.setBackground(new Color(255, 255, 255));
+		MainPanel.add(CentrPanel, BorderLayout.CENTER);
+		CentrPanel.setLayout(new MigLayout("wrap, fill", "[]", "[]8[::25px][::100px]8[::25px][]"));
+					
+				UsernameEmailLbl = new JLabel("Username o Email:");
+				UsernameEmailLbl.setHorizontalAlignment(SwingConstants.CENTER);
+				UsernameEmailLbl.setForeground(new Color(20, 40, 60));
+				UsernameEmailLbl.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				CentrPanel.add(UsernameEmailLbl, "cell 0 0,alignx center,aligny bottom");
+				
+				UsernameEmailTxt = new JTextField();
+				UsernameEmailTxt.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 200)));
+				UsernameEmailTxt.setForeground(new Color(20, 40, 60));
+				UsernameEmailTxt.setFont(new Font("Tahoma", Font.PLAIN, 12));
+				CentrPanel.add(UsernameEmailTxt, "cell 0 1,alignx center,growy");
+				UsernameEmailTxt.setColumns(20);
+				
+				
+				PasswordLbl = new JLabel("Password\r\n:");
+				PasswordLbl.setHorizontalAlignment(SwingConstants.CENTER);
+				PasswordLbl.setForeground(new Color(20, 40, 60));
+				PasswordLbl.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				CentrPanel.add(PasswordLbl, "cell 0 2,alignx center,aligny bottom");
+				
+				PasswordTxt = new JPasswordField();
+				PasswordTxt.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 200)));
+				PasswordTxt.setForeground(new Color(20, 40, 60));
+				PasswordTxt.setFont(new Font("Tahoma", Font.PLAIN, 12));
+				CentrPanel.add(PasswordTxt, "cell 0 3,alignx center,growy");
+				PasswordTxt.setColumns(20);
+		
+				SignUpSwitchBtn = new JButton("Non hai un account? Registrati.");
+				SignUpSwitchBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		        SignUpSwitchBtn.setForeground(new Color(0, 0, 200));
+		        SignUpSwitchBtn.setHorizontalAlignment(SwingConstants.CENTER);
+		        SignUpSwitchBtn.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		        SignUpSwitchBtn.setFocusPainted(false);
+		        SignUpSwitchBtn.setMargin(new Insets(0, 0, 0, 0));
+		        SignUpSwitchBtn.setContentAreaFilled(false);
+		        SignUpSwitchBtn.setBorderPainted(false);
+		        SignUpSwitchBtn.setOpaque(false);
+				CentrPanel.add(SignUpSwitchBtn, "cell 0 4,alignx center,aligny center");
+				
+				
+				
+			JPanel WestPanel = new JPanel();
+			WestPanel.setBackground(new Color(0, 0, 200));
+			WestPanel.setPreferredSize(new Dimension(55, 10));
+			MainPanel.add(WestPanel, BorderLayout.WEST);
+			WestPanel.setLayout(new MigLayout("wrap, fill", "[]", "[][][][][][][]"));
+			
+				JLabel IconConteinerSx_1 = new JLabel("");
+				WestPanel.add(IconConteinerSx_1, "cell 0 0,alignx center,aligny center");
+				
+				JLabel IconConteinerSx_2 = new JLabel("");
+				WestPanel.add(IconConteinerSx_2, "cell 0 1, alignx center, aligny center");
+				
+				JLabel IconConteinerSx_3 = new JLabel("");
+				WestPanel.add(IconConteinerSx_3, "cell 0 2, alignx center, aligny center");
+				
+				JLabel IconConteinerSx_4 = new JLabel("");
+				WestPanel.add(IconConteinerSx_4, "cell 0 3, alignx center, aligny center");
+				
+				JLabel lblNewLabelSx_5 = new JLabel("");
+				WestPanel.add(lblNewLabelSx_5, "cell 0 4, alignx center, aligny center");
+				
+				JLabel IconConteinerSx_6 = new JLabel("");
+				WestPanel.add(IconConteinerSx_6, "cell 0 5, alignx center, aligny center");
+				
+				JLabel lblNewLabelSx_7 = new JLabel("");
+				WestPanel.add(lblNewLabelSx_7, "cell 0 6, alignx center, aligny center");
+			
+				
+				
+			JPanel EastPanel = new JPanel();
+			EastPanel.setPreferredSize(new Dimension(55, 10));
+			EastPanel.setBackground(new Color(0, 0, 200));
+			MainPanel.add(EastPanel, BorderLayout.EAST);
+			EastPanel.setLayout(new MigLayout("wrap, fill", "[]", "[][][][][][][]"));
+			
+				JLabel IconConteinerDx_1 = new JLabel("");
+				EastPanel.add(IconConteinerDx_1, "cell 0 0, alignx center, aligny center");
+				
+				JLabel IconConteinerDx_2 = new JLabel("");
+				EastPanel.add(IconConteinerDx_2, "cell 0 1, alignx center, aligny center");
+				
+				JLabel IconConteinerDx_3 = new JLabel("");
+				EastPanel.add(IconConteinerDx_3, "cell 0 2, alignx center, aligny center");
+				
+				JLabel IconConteinerDx_4 = new JLabel("");
+				EastPanel.add(IconConteinerDx_4, "cell 0 3, alignx center, aligny center");
+				
+				JLabel IconConteinerDx_5 = new JLabel("");
+				EastPanel.add(IconConteinerDx_5, "cell 0 4, alignx center, aligny center");
+				
+				JLabel IconConteinerDx_6 = new JLabel("");
+				EastPanel.add(IconConteinerDx_6, "cell 0 5, alignx center, aligny center");
+				
+				JLabel IconConteinerDx_7 = new JLabel("");
+				EastPanel.add(IconConteinerDx_7, "cell 0 6, alignx center, aligny center");
+			
+			
+				
+			JPanel SouthPanel = new JPanel();
+			SouthPanel.setBackground(new Color(246, 247, 248));
+			SouthPanel.setPreferredSize(new Dimension(10, 120));
+			MainPanel.add(SouthPanel, BorderLayout.SOUTH);
+			SouthPanel.setLayout(new MigLayout("wrap, fill", "[][]", "[]"));
+			
+				AnnullaLogInBtn = new JButton("Annulla");
+				AnnullaLogInBtn.setPreferredSize(new Dimension(120, 30));
+				SouthPanel.add(AnnullaLogInBtn, "cell 0 0,alignx right,aligny center");
+				
+				ConfermaBtn = new JButton("Conferma\r\n");
+				ConfermaBtn.setForeground(new Color(255, 255, 255));
+				ConfermaBtn.setBackground(new Color(0, 0, 200));
+				ConfermaBtn.setPreferredSize(new Dimension(120, 30));
+				SouthPanel.add(ConfermaBtn, "cell 1 0,alignx left,aligny center");
  }
 	
 	public JButton getAnnullaLogInBtn() {
-		return annullaLogInBtn;
+		return AnnullaLogInBtn;
+	}
+	
+	public JButton getSignUpSwitchBtn() {
+		return SignUpSwitchBtn;
+		
+	}
+	public JButton getLogInConfermaBtn() {
+		return ConfermaBtn;
+	}
+	
+	public String getUsernameEmailTxt() {
+		return UsernameEmailTxt.getText();	}
+	
+	public void setUsernameEmailNull() {
+		UsernameEmailTxt.setText("");
+	}
+	
+	@SuppressWarnings("deprecation")
+	public String getPasswordLogIn() {
+		return PasswordTxt.getText();	}
+	
+	public void setPasswordNullLogIn() {
+		PasswordTxt.setText("");
+	}
+	
+	public JTextField getUsernameEmail() {
+		return  UsernameEmailTxt;
+	}
+	
+	public JPasswordField getPassword() {
+		return PasswordTxt;
 	}
 }
