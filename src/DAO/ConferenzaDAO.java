@@ -132,7 +132,29 @@ public class ConferenzaDAO {
         }
     }
 	
-	public boolean checkIscrizione(String email, int id_conferenza) {
+    public ArrayList<Conferenza> getConferenzeRicerca(String query){
+	    
+	ArrayList<Conferenza> Conferenze = new ArrayList<Conferenza>();
+
+        try {
+
+           PreparedStatement statement = DataBase.getConnection().prepareStatement(query);
+           ResultSet rs = statement.executeQuery();
+           
+           while (rs.next()) {
+
+               Conferenza conf = new Conferenza();
+               conf.setNome(rs.getString(1));
+               conf.setTema(rs.getString(2));
+               Conferenze.add(conf);
+           }
+
+           return Conferenze;
+
+       } catch (SQLException e) { return Conferenze; }
+    }
+	
+    public boolean checkIscrizione(String email, int id_conferenza) {
 		
 		String query = "SELECT * FROM iscrizioni_conferenze WHERE email = '"+ email +"' AND id_conferenza = '"+ id_conferenza +"';"; 
 		boolean ConferenzaPresente = false;
