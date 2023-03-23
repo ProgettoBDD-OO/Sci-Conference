@@ -128,10 +128,10 @@ public class ConferenzaDAO {
             return Conferenze;
         }
     }
-	
-	public ArrayList<Conferenza> getConferenzeRicerca(String query) {
 		
-		ArrayList<Conferenza> Conferenze = new ArrayList<Conferenza>();
+    public ArrayList<Conferenza> getConferenzeRicerca(String query){
+	    
+	ArrayList<Conferenza> Conferenze = new ArrayList<Conferenza>();
 
         try {
 
@@ -149,9 +149,10 @@ public class ConferenzaDAO {
            return Conferenze;
 
        } catch (SQLException e) { return Conferenze; }
+
 	}
 	
-	public boolean checkIscrizione(String email, int id_conferenza) {
+    public boolean checkIscrizione(String email, int id_conferenza) {
 		
 		String query = "SELECT * FROM iscrizioni_conferenze WHERE email = '"+ email +"' AND id_conferenza = '"+ id_conferenza +"';"; 
 		boolean ConferenzaPresente = false;
