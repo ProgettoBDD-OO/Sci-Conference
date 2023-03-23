@@ -16,25 +16,20 @@ public class FilterItem extends JPanel {
 	
 	private boolean Showing = false;
 	private ArrayList<FilterItem> SubMenu = new ArrayList<>();
-	private JToggleButton FilterItemLbl;
+	private JLblButton FilterItemBtn;
 	
-	public FilterItem(String FilterItemName, Color ColoreTesto, Font GrandezzaFont, FilterItem... subMenu) {
+	public FilterItem(String name, Color c, Font f, FilterItem... subMenu) {
 				
 		setBackground(new Color(246, 247, 248));
 		setAlignmentX(Component.CENTER_ALIGNMENT);
-		
-		FilterItemLbl = new JToggleButton("MenuItem");
-		FilterItemLbl.setContentAreaFilled(false);
-		FilterItemLbl.setBorder(null);
-		FilterItemLbl.setFont(GrandezzaFont);
-		FilterItemLbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		FilterItemLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		FilterItemLbl.setText(FilterItemName);
-		FilterItemLbl.setForeground(ColoreTesto);
-		this.setPreferredSize(new Dimension(100, 50));
-		this.setMaximumSize(new Dimension(100, 50));
 		setLayout(new BorderLayout(0, 0));
-		add(FilterItemLbl, BorderLayout.CENTER);
+		setPreferredSize(new Dimension(100, 50));
+		setMaximumSize(new Dimension(100, 50));
+		
+		FilterItemBtn = new JLblButton(c, name);
+		FilterItemBtn.setBorder(null);
+		FilterItemBtn.setFont(f);
+		add(FilterItemBtn, BorderLayout.CENTER);
 		
 		JSeparator FilterSeparator = new JSeparator();
 		add(FilterSeparator, BorderLayout.SOUTH);
@@ -44,29 +39,22 @@ public class FilterItem extends JPanel {
 			subMenu[i].setVisible(false);
 		}
 		
-		FilterItemLbl.addMouseListener(new MouseAdapter() {
+		FilterItemBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				if(Showing) {
-					hideMenu();
-					Showing = false;
-				} else {
-					showMenu();
-					Showing = true;
-				}
+				
+				if(Showing) { hideMenu(); Showing = false; }
+				
+				else { showMenu(); Showing = true; }
 			}
 		});
-	}
-	
-
-	public ArrayList<FilterItem> getSubMenu() {
-		return SubMenu;
 	}
 	
 	private void showMenu() {
 		new Thread(new Runnable() {
 			public void run() {
 				for (int i = 0; i < SubMenu.size(); i++) {
+					
 					sleep();
 					SubMenu.get(i).setVisible(true);
 				}
@@ -78,7 +66,12 @@ public class FilterItem extends JPanel {
 		new Thread(new Runnable() {
 			public void run() {
 				for (int i = SubMenu.size() - 1; i >= 0; i--) {
+					
 					sleep();
+					for (int j = 0; j < SubMenu.get(i).getSubMenu().size(); j++) {
+						
+						SubMenu.get(i).getSubMenu().get(j).setVisible(false);
+					}
 					SubMenu.get(i).setVisible(false);
 				}
 			}
@@ -86,10 +79,17 @@ public class FilterItem extends JPanel {
 	}
 	
 	private void sleep() {
-		try {
-			Thread.sleep(20);
-		} catch(Exception e) {}
+		
+		try { Thread.sleep(20); } 
+		
+		catch(Exception e) {}
 	}
 	
-	public JToggleButton getFilterItemLbl() { return FilterItemLbl; }
+	public ArrayList<FilterItem> getSubMenu() { return SubMenu; }
+	
+	public JLblButton getFilterItemBtn() { return FilterItemBtn; }
+	
+	public String getTxt() { return FilterItemBtn.getText(); }
+	
+	public void setTxtWhite() { FilterItemBtn.setForeground(new Color(255, 255, 255)); }
 }

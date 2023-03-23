@@ -76,10 +76,9 @@ public class UtenteDAO {
     }
     
     
-    public void iscrizione(String email, Integer idConf) {
+    public void iscrizione(String email, int idConf) {
     	
-    	String id = idConf.toString();
-    	String insert = "INSERT INTO iscrizioni_conferenze VALUES ('"+ email +"', '"+ id +"');";
+    	String insert = "INSERT INTO iscrizioni_conferenze VALUES ('"+ email +"', '"+ idConf +"');";
     	
     	try {
 			

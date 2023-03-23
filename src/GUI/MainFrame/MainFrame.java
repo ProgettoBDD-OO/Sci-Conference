@@ -11,7 +11,7 @@ import javax.swing.*;
 import DTO.Utente;
 import linker.Controller;
 import linker.ControllerLink;
-import myTools.JConfBtn;
+import myTools.JLblButton;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -51,7 +51,12 @@ public class MainFrame extends JFrame {
 //_______________________________________________________________Panello Sinistro
 		
 		SxPanel = new WestPanel();
+		SxPanel.getCalendario().addMouseListener(new MouseAdapter() {
+			
+		});
 		
+			controller.addConferenze(SxPanel);
+			
 			SxPanel.getCalendario().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					controllerLink.goToCalendario();
@@ -70,14 +75,13 @@ public class MainFrame extends JFrame {
 				}
 			});
 			
-			controller.addConferenze(SxPanel);
 			
-			for (JConfBtn cBtn : getSxPanel().getArrayConfBtns()) {
-				cBtn.addActionListener(new ActionListener() {
+			for (JLblButton lBtn : getSxPanel().getArrayLblButtons()) {
+				lBtn.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						dispose();
-						controllerLink.goToConferenza("MainFrame", ((JConfBtn)e.getSource()).getText());
+						
+						controllerLink.goToConferenza("MainFrame", ((JLblButton)e.getSource()).getText());
 					}
 				});
 			}
@@ -107,18 +111,8 @@ public class MainFrame extends JFrame {
 //_______________________________________________________________Panello Destro
 		   
 		DxPanel = new EastPanel();
-		DxPanel.getResearchBar().addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == 10) { controllerLink.goToRisultati(); }
-			}
-		});
 		
-			DxPanel.getAddIdeaBtn().addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					controllerLink.goToBacheca();
-				}
-			});
+			controller.showLatestConfInBacheca(DxPanel);
 		
 			DxPanel.getFilterBtn().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -127,11 +121,51 @@ public class MainFrame extends JFrame {
 				}
 			});
 		
-		
+			DxPanel.getResearchBar().addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent e) {
+					if (e.getKeyCode() == 10) { controllerLink.goToRisultati(); }
+				}
+			});
+			
 			DxPanel.getResearchBar().addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
 					controller.setTextNull(DxPanel);
+				}
+			});
+			
+			DxPanel.getClearFltrBtn().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					controllerLink.resetQuery();
+					DxPanel.resetFilterLbl();
+					DxPanel.getClearFltrBtn().setVisible(false);
+				}
+			});
+			
+			for (JLblButton lBtn : DxPanel.getArrayConfBacheca()) {
+				
+				lBtn.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mousePressed(MouseEvent e) {
+						controller.setInfoConfBacheca(DxPanel.getCbPanel(), lBtn.getText());
+						showMenu(e);
+					}
+					@Override
+					public void mouseExited(MouseEvent e) {
+						DxPanel.getPopupMenu().setVisible(false);
+					}
+					private void showMenu(MouseEvent e) {
+						DxPanel.getPopupMenu().setLocation(DxPanel.getLocationOnScreen().x, lBtn.getLocationOnScreen().y + 50);
+						DxPanel.getPopupMenu().setVisible(true);
+					}
+				});
+			}
+			
+			DxPanel.getAddIdeaBtn().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					controllerLink.goToBacheca();
 				}
 			});
 		

@@ -1,41 +1,36 @@
 package linker;
+
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.util.Iterator;
 
-import javax.swing.JFrame;
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
-import javax.swing.border.MatteBorder;
+import javax.swing.JPopupMenu;
+import javax.swing.JRadioButton;
+import javax.swing.plaf.basic.BasicRadioButtonUI;
 
 import DAO.ConferenzaDAO;
 import DTO.Conferenza;
 import GUI.*;
 import GUI.CalendarFrame.CalendarMainFrame;
-import GUI.CalendarFrame.CalendarPanel;
 import GUI.MainFrame.MainFrame;
 import myTools.DifferentPasswordException;
-import myTools.JConfBtn;
+import myTools.JLblButton;
 import myTools.UserNotFoundException;
 import myTools.WrongPasswordException;
-import net.miginfocom.layout.ContainerWrapper;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
 import java.awt.MouseInfo;
 
 public class ControllerLink {
 	
-	private MainFrame ViewMainFrame;
 	
+	private MainFrame ViewMainFrame;
 	private LogInFrame ViewLogIn; 
 	private SignUpFrame ViewSignUp;
 	
@@ -44,6 +39,10 @@ public class ControllerLink {
 	
 	private FilterFrame ViewFiltri;
 	private RisultatiRicercaFrame ViewRisultati;
+	
+	String queryIniziale = "SELECT nome, tema FROM conferenze_scientifiche";
+	String queryTemi = "";
+	String queryCollocazioni = "";
 	
 	private InfoConferenzaFrame ViewInfoConferenza;
 	private InsertPswrdFrame ViewInsertPswrd;
@@ -65,10 +64,11 @@ public class ControllerLink {
 	public void goToConferenza(String frameAttuale, String nomeConferenza) {
 			
 		linkedFrame = new String();
+		linkedFrame = frameAttuale; 
 		
 		if (ViewMainFrame.isVisible()) { ViewMainFrame.setVisible(false); ViewCalendario.setVisible(false); }
-	        
-	    linkedFrame = frameAttuale; 
+
+		else { ViewRisultati.setVisible(false); }
 	        
 	    ViewInfoConferenza = new InfoConferenzaFrame("", this);
 	    controller.addInfoConferenze(ViewMainFrame.getUtenteLoggato(), nomeConferenza, ViewInfoConferenza);
@@ -121,7 +121,7 @@ public class ControllerLink {
 			
 			ViewInsertPswrd.dispose();
 			ViewInfoConferenza.dispose();
-			JConfBtn ConfBtn = new JConfBtn(conf.getNome(), conf.getTema());
+			JLblButton ConfBtn = new JLblButton(new Color(100, 105, 110), conf.getNome(), conf.getTema());
 			controller.addUserConf(ConfBtn, ViewMainFrame.getCtrPanel(), conf);
 			ViewMainFrame.setVisible(true);
 			JOptionPane.showMessageDialog(ViewMainFrame,"Iscrizione Effettuata!");
@@ -135,7 +135,7 @@ public class ControllerLink {
 
 		ViewMainFrame.dispose();
 		
-		ViewLogIn = new LogInFrame("Sci-Conference", this, controller);
+		ViewLogIn = new LogInFrame("Sci-Conference", this);
 		ViewLogIn.setUsernameEmailTxtNull();
 		ViewLogIn.setPasswordTxtNull();
 		ViewLogIn.setVisible(true);
@@ -144,8 +144,6 @@ public class ControllerLink {
 	public void backFromLogIn() {
 		
 		ViewLogIn.dispose();
-		
-		ViewMainFrame = new MainFrame("", this, controller);
 		ViewMainFrame.setVisible(true);
 	}
 	
@@ -158,7 +156,7 @@ public class ControllerLink {
 			ViewMainFrame.setVisible(true);
 			JOptionPane.showMessageDialog(ViewMainFrame,"Log-In avvenuto con successo!\nBenvenuto!");
 			
-			for (JConfBtn cBtn : ViewMainFrame.getCtrPanel().getArrayConfBtns()) {
+			for (JLblButton cBtn : ViewMainFrame.getCtrPanel().getArrayLblButtons()) {
 				cBtn.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) { goToConferenza("MainFrame", (cBtn.getText())); }
@@ -228,7 +226,7 @@ public class ControllerLink {
 		
 		ViewSignUp.dispose();
 		
-		ViewLogIn = new LogInFrame("Sci-Conference", this, controller);
+		ViewLogIn = new LogInFrame("Sci-Conference", this);
 		ViewLogIn.setVisible(true);
 	}
 	
@@ -244,19 +242,15 @@ public class ControllerLink {
 	
 	public void goToFiltri() {
 		
-		ViewFiltri = new FilterFrame("");
+		ViewFiltri = new FilterFrame("", controller, this);
 		Point MouseCoordnt = MouseInfo.getPointerInfo().getLocation();
 		ViewFiltri.setLocation(MouseCoordnt.x - 20, MouseCoordnt.y + 25);
 		ViewFiltri.setVisible(true);
-		ViewFiltri.addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosed(WindowEvent e) {
-				System.out.println("prova prova prova");
-				ViewMainFrame.getDxPanel().getFilterBtn().setEnabled(true);
-			}
-		});
 	}
 	
+	public void foo() {
+		ViewMainFrame.getDxPanel().getFilterBtn().setEnabled(true);
+	}
 	
 	
 //_____________________________________________________________________________________________MainFrame-Bacheca
@@ -266,6 +260,7 @@ public class ControllerLink {
 		ViewMainFrame.setVisible(false);
 		
 		ViewBacheca = new BachecaFrame("Sci-Conference", this);
+		
 		ViewBacheca.setVisible(true);
 	}
 	
@@ -275,15 +270,40 @@ public class ControllerLink {
 		ViewMainFrame.setVisible(true);
 	}
 	
+	public void confermaBacheca() {
+		
+		controller.addIdeaToBacheca(ViewBacheca);
+		ViewBacheca.dispose();
+		ViewMainFrame.setVisible(true);
+		JOptionPane.showMessageDialog(ViewMainFrame,"Idea inserita in bacheca!");
+	}
+	
 	
 	
 //_____________________________________________________________________________________________MainFrame-Risultati
 	
 	public void goToRisultati() {
 		
-		ViewMainFrame.setVisible(false);
+		String QueryFinale = controller.addNomeFiltro(queryIniziale, queryTemi, queryCollocazioni, ViewMainFrame.getDxPanel());
 		
 		ViewRisultati = new RisultatiRicercaFrame("Sci-Conference", this);
+		
+		if (!controller.getRisultati(QueryFinale).isEmpty()) {
+			
+			for (JLblButton lBtn : controller.getRisultati(QueryFinale)) {
+				
+				lBtn.setFont(new Font("Calibri Light", Font.PLAIN, 18));
+				lBtn.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) { goToConferenza("RisultatiFrame", (lBtn.getText())); }
+				});
+				ViewRisultati.getRisultatiPanel().add(lBtn);
+			}
+			
+			ViewRisultati.getRisultatiCardLayout().show(ViewRisultati.getRisultatiCardPanel(), "2");
+		} 
+		
+		ViewMainFrame.setVisible(false);
 		ViewRisultati.setVisible(true);
 	}
 	
@@ -292,4 +312,26 @@ public class ControllerLink {
 		ViewRisultati.dispose();
 		ViewMainFrame.setVisible(true);
 	}
+	
+	public void addLuogoToLbl(String filtro) {
+		
+		ViewMainFrame.getDxPanel().getClearFltrBtn().setVisible(true);
+		ViewMainFrame.getDxPanel().addPlacesLbl(filtro);
+	}
+	
+	public void addTemaToLbl(String filtro) {
+		
+		ViewMainFrame.getDxPanel().getClearFltrBtn().setVisible(true);
+		ViewMainFrame.getDxPanel().addTopicsLbl(filtro);
+	}
+	
+	public String getQueryTemi() { return queryTemi; }
+	
+	public void addQueryTemi(String q) { queryTemi += q; }
+
+	public void resetQuery() { queryTemi = ""; queryCollocazioni = ""; }
+	
+	public String getQueryCollocazioni() { return queryCollocazioni; }
+	
+	public void addQueryCollocazioni(String q) { queryCollocazioni += q; }
 }
