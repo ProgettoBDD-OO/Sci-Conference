@@ -1,7 +1,7 @@
 package GUI;
 
 import linker.ControllerLink;
-import myTools.myColors;
+import myTools.myTemplates;
 import myTools.myRadioBtn;
 
 import javax.swing.*;
@@ -17,7 +17,7 @@ public class BachecaFrame extends JFrame {
 	
 	private ControllerLink controllerLink;
 	
-	private myColors c = new myColors();
+	private myTemplates t = new myTemplates();
 	
 	private JTextField NomeConfTxt;
 	private JTextArea DescrizioneConfTxt;
@@ -38,14 +38,10 @@ public class BachecaFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(false);
 		setResizable(false);
-
-		ImageIcon IconLogo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\miniLogo.png");
-		Image IconAppLogo = IconLogo.getImage();
-		setIconImage(IconAppLogo);
+		setIconImage(new ImageIcon(getClass().getResource("/Images/mini_logo.png")).getImage());
 		
 		JPanel MainPanel = new JPanel();
-		MainPanel.setBorder(new EmptyBorder(10, 7, 7, 7));
-		MainPanel.setBackground(c.lGray);
+		MainPanel.setBackground(t.lGray);
 		setContentPane(MainPanel);
 		MainPanel.setLayout(new BorderLayout(0, 0));
 		
@@ -54,18 +50,18 @@ public class BachecaFrame extends JFrame {
 //__________________________________________________________________Pannello Nord
 		
 		JPanel NorthPanel = new JPanel();
-		NorthPanel.setBackground(c.lGray);
+		NorthPanel.setBackground(t.lGray);
 		NorthPanel.setPreferredSize(new Dimension(10, 125));
 		NorthPanel.setLayout(new MigLayout("wrap, fill", "[]", "[][]"));
 		MainPanel.add(NorthPanel, BorderLayout.NORTH);
 		
 			JLabel ProposteLbl1 = new JLabel("Aggiungi la tua idea per una conferenza!");
-			ProposteLbl1.setForeground(c.tangaroa);
+			ProposteLbl1.setForeground(t.tangaroa);
 			ProposteLbl1.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 			NorthPanel.add(ProposteLbl1, "cell 0 0,alignx center,growy");
 			
 			JLabel ProposteLbl2 = new JLabel("La tua proposta potrà essere visualizzata sulla bacheca e presa in considerazione.\r\n");
-			ProposteLbl2.setForeground(c.tangaroa);
+			ProposteLbl2.setForeground(t.tangaroa);
 			ProposteLbl2.setFont(new Font("Calibri Light", Font.PLAIN, 20));
 			NorthPanel.add(ProposteLbl2, "cell 0 1,alignx center,growy");
 			
@@ -74,140 +70,103 @@ public class BachecaFrame extends JFrame {
 //__________________________________________________________________Pannello Centrale
 		
 		JPanel CentrPanel = new JPanel();
-		CentrPanel.setBackground(c.lGray);
+		CentrPanel.setBackground(new Color(255, 255, 255));
 		MainPanel.add(CentrPanel, BorderLayout.CENTER);
 		CentrPanel.setLayout(new BorderLayout(0, 0));
 		
 		
 			JPanel InfoPanel = new JPanel();
 			InfoPanel.setPreferredSize(new Dimension(10, 300));
-			InfoPanel.setBackground(c.lGray);
+			InfoPanel.setBackground(new Color(255, 255, 255));
 			CentrPanel.add(InfoPanel, BorderLayout.NORTH);
-			InfoPanel.setLayout(new MigLayout("wrap, fill", "[grow]", "[][][::25px]15[::30px][60px:n]15[::30px]"));
+			InfoPanel.setLayout(new MigLayout("wrap, fill", "[grow]", "[][::25px]15[::30px][60px:n]15[::30px]"));
 					
-					JSeparator separator = new JSeparator();
-					separator.setForeground(c.scBlue);
-					separator.setPreferredSize(new Dimension(650, 2));
-					InfoPanel.add(separator, "cell 0 0,alignx center,aligny center");
-				
-					JLabel NomeConfLbl = new JLabel("Nome:");
-					NomeConfLbl.setForeground(c.tangaroa);
-					NomeConfLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
-					InfoPanel.add(NomeConfLbl, "cell 0 1,alignx left,aligny bottom");
-				
-					NomeConfTxt = new JTextField();
-					NomeConfTxt.setForeground(c.scBlue);
-					NomeConfTxt.setBorder(new MatteBorder(1, 1, 1, 1, c.altGray));
-					NomeConfTxt.setFont(new Font("Calibri Light", Font.PLAIN, 18));
-					InfoPanel.add(NomeConfTxt, "cell 0 2,alignx left,growy");
-					NomeConfTxt.setColumns(20);
+						JLabel NomeConfLbl = new JLabel("Nome:");
+						NomeConfLbl.setForeground(t.scBlue);
+						NomeConfLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
+						InfoPanel.add(NomeConfLbl, "cell 0 0,alignx left,aligny bottom");
+					
+						NomeConfTxt = new JTextField();
+						NomeConfTxt.setForeground(t.tangaroa);
+						NomeConfTxt.setBorder(new MatteBorder(1, 1, 1, 1, t.scBlue));
+						NomeConfTxt.setFont(new Font("Calibri Light", Font.PLAIN, 18));
+						InfoPanel.add(NomeConfTxt, "cell 0 1,alignx left,growy");
+						NomeConfTxt.setColumns(20);
 					
 					JLabel DescrizioneConfLbl = new JLabel("Descrizione:");
-					DescrizioneConfLbl.setForeground(c.tangaroa);
+					DescrizioneConfLbl.setForeground(t.scBlue);
 					DescrizioneConfLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
-					InfoPanel.add(DescrizioneConfLbl, "cell 0 3,alignx left,aligny bottom");
+					InfoPanel.add(DescrizioneConfLbl, "cell 0 2,alignx left,aligny bottom");
 					
 					DescrizioneConfTxt = new JTextArea();
 					DescrizioneConfTxt.setLineWrap(true);
-					DescrizioneConfTxt.setForeground(c.scBlue);
-					DescrizioneConfTxt.setBorder(new MatteBorder(1, 1, 1, 1, c.altGray));
+					DescrizioneConfTxt.setWrapStyleWord(true);
+					DescrizioneConfTxt.setForeground(t.tangaroa);
+					DescrizioneConfTxt.setBorder(new MatteBorder(1, 1, 1, 1, t.scBlue));
 					DescrizioneConfTxt.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					DescrizioneConfTxt.setPreferredSize(new Dimension(400, 22));
-					InfoPanel.add(DescrizioneConfTxt, "cell 0 4,alignx left,growy");
+					InfoPanel.add(DescrizioneConfTxt, "cell 0 3,alignx left,growy");
 					
 					JLabel TemaConfLbl = new JLabel("Tema:");
-					TemaConfLbl.setForeground(c.tangaroa);
+					TemaConfLbl.setForeground(t.scBlue);
 					TemaConfLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
-					InfoPanel.add(TemaConfLbl, "cell 0 5,alignx left,aligny bottom");
+					InfoPanel.add(TemaConfLbl, "cell 0 4,alignx left,aligny bottom");
 					
 					
 			JPanel TemiPanel = new JPanel();
-			TemiPanel.setBackground(c.lGray);
+			TemiPanel.setBackground(new Color(255, 255, 255));
 			CentrPanel.add(TemiPanel, BorderLayout.CENTER);
 			TemiPanel.setLayout(new MigLayout("wrap, fill", "[][][]", "[::50px][::50px][::50px][::50px]"));
 			
 				buttonGroup = new ButtonGroup();
 					
-					myRadioBtn TemaAmbienteLbl = new myRadioBtn("Ambiente", new Color(0, 200, 0));
+					myRadioBtn TemaAmbienteLbl = new myRadioBtn("Ambiente", new Color(0, 200, 0), 18);
 					buttonGroup.add(TemaAmbienteLbl);
 					TemiPanel.add(TemaAmbienteLbl, "cell 0 0, alignx left, aligny center");
 					
-					myRadioBtn TemaChimicaLbl = new myRadioBtn("Chimica", (Color) null);
+					myRadioBtn TemaChimicaLbl = new myRadioBtn("Chimica", new Color(0, 200, 255), 18);
 					buttonGroup.add(TemaChimicaLbl);
-					TemaChimicaLbl.setBackground(c.lGray);
-					TemaChimicaLbl.setForeground(new Color(0, 200, 255));
-					TemaChimicaLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					TemiPanel.add(TemaChimicaLbl, "cell 1 0, alignx left, aligny center");
 					
-					myRadioBtn TemaBiologiaLbl = new myRadioBtn("Biologia", (Color) null);
+					myRadioBtn TemaBiologiaLbl = new myRadioBtn("Biologia", new Color(0, 128, 0), 18);
 					buttonGroup.add(TemaBiologiaLbl);
-					TemaBiologiaLbl.setBackground(c.lGray);
-					TemaBiologiaLbl.setForeground(new Color(0, 128, 0));
-					TemaBiologiaLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					TemiPanel.add(TemaBiologiaLbl, "cell 2 0, alignx left, aligny center");
 					
-					myRadioBtn TemaSostenibilitàLbl = new myRadioBtn("Sostenibilità", (Color) null);
+					myRadioBtn TemaSostenibilitàLbl = new myRadioBtn("Sostenibilità", new Color(240, 210, 0), 18);
 					buttonGroup.add(TemaSostenibilitàLbl);
-					TemaSostenibilitàLbl.setBackground(c.lGray);
-					TemaSostenibilitàLbl.setForeground(new Color(240, 210, 0));
-					TemaSostenibilitàLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					TemiPanel.add(TemaSostenibilitàLbl, "cell 0 1, alignx left, aligny center");
 					
-					myRadioBtn TemaInformaticaLbl = new myRadioBtn((String) null, (Color) null);
+					myRadioBtn TemaInformaticaLbl = new myRadioBtn("Informatica", new Color(0, 100, 255), 18);
 					buttonGroup.add(TemaInformaticaLbl);
-					TemaInformaticaLbl.setBackground(c.lGray);
-					TemaInformaticaLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
-					TemaInformaticaLbl.setForeground(new Color(0, 100, 255));
 					TemiPanel.add(TemaInformaticaLbl, "cell 1 1, alignx left,aligny center");
 					
-					myRadioBtn TemaAnatomiaLbl = new myRadioBtn((String) null, (Color) null);
+					myRadioBtn TemaAnatomiaLbl = new myRadioBtn("Anatomia", new Color(250, 88, 80), 18);
 					buttonGroup.add(TemaAnatomiaLbl);
-					TemaAnatomiaLbl.setBackground(c.lGray);
-					TemaAnatomiaLbl.setForeground(new Color(250, 88, 80));
-					TemaAnatomiaLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					TemiPanel.add(TemaAnatomiaLbl, "cell 2 1, alignx left,aligny center");
 					
-					myRadioBtn TemaFisicaLbl = new myRadioBtn((String) null, (Color) null);
+					myRadioBtn TemaFisicaLbl = new myRadioBtn("Fisica", new Color(250, 80, 0), 18);
 					buttonGroup.add(TemaFisicaLbl);
-					TemaFisicaLbl.setBackground(c.lGray);
-					TemaFisicaLbl.setForeground(new Color(250, 80, 0));
-					TemaFisicaLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					TemiPanel.add(TemaFisicaLbl, "cell 0 2, alignx left, aligny center");
 					
-					myRadioBtn TemaMatematicaLbl = new myRadioBtn((String) null, (Color) null);
+					myRadioBtn TemaMatematicaLbl = new myRadioBtn("Matematica", t.scBlue, 18);
 					buttonGroup.add(TemaMatematicaLbl);
-					TemaMatematicaLbl.setBackground(c.lGray);
-					TemaMatematicaLbl.setForeground(c.scBlue);
-					TemaMatematicaLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					TemiPanel.add(TemaMatematicaLbl, "cell 1 2, alignx left, aligny center");
 					
-					myRadioBtn TemaPsicologiaLbl = new myRadioBtn((String) null, (Color) null);
+					myRadioBtn TemaPsicologiaLbl = new myRadioBtn("Psicologia", new Color(255, 0, 128), 18);
 					buttonGroup.add(TemaPsicologiaLbl);
-					TemaPsicologiaLbl.setBackground(c.lGray);
-					TemaPsicologiaLbl.setForeground(new Color(255, 0, 128));
-					TemaPsicologiaLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					TemiPanel.add(TemaPsicologiaLbl, "cell 2 2, alignx left, aligny center");
 					TemaPsicologiaLbl.setActionCommand("Psicologia");
 					
-					myRadioBtn TemaGeologiaLbl = new myRadioBtn((String) null, (Color) null);
+					myRadioBtn TemaGeologiaLbl = new myRadioBtn("Geologia", new Color(180, 100, 40), 18);
 					buttonGroup.add(TemaGeologiaLbl);
-					TemaGeologiaLbl.setBackground(c.lGray);
-					TemaGeologiaLbl.setForeground(new Color(180, 100, 40));
-					TemaGeologiaLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					TemiPanel.add(TemaGeologiaLbl, "cell 0 3, alignx left, aligny center");
 					
-					myRadioBtn TemaAstrologiaLbl = new myRadioBtn((String) null, (Color) null);
+					myRadioBtn TemaAstrologiaLbl = new myRadioBtn("Astrologia", new Color(30, 30, 120), 18);
 					buttonGroup.add(TemaAstrologiaLbl);
-					TemaAstrologiaLbl.setBackground(c.lGray);
-					TemaAstrologiaLbl.setForeground(new Color(30, 30, 120));
-					TemaAstrologiaLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					TemiPanel.add(TemaAstrologiaLbl, "cell 1 3, alignx left, aligny center");
 					
-					myRadioBtn TemaAltroLbl = new myRadioBtn((String) null, (Color) null);
+					myRadioBtn TemaAltroLbl = new myRadioBtn("Altro", t.altGray, 18);
 					buttonGroup.add(TemaAltroLbl);
-					TemaAltroLbl.setBackground(c.lGray);
-					TemaAltroLbl.setForeground(c.altGray);
-					TemaAltroLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					TemiPanel.add(TemaAltroLbl, "cell 2 3, alignx left, aligny center");
 					
 					
@@ -215,7 +174,7 @@ public class BachecaFrame extends JFrame {
 //__________________________________________________________________Pannello Nord
 		
 		JPanel SouthPanel = new JPanel();
-		SouthPanel.setBackground(c.lGray);
+		SouthPanel.setBackground(t.lGray);
 		SouthPanel.setPreferredSize(new Dimension(10, 100));
 		MainPanel.add(SouthPanel, BorderLayout.SOUTH);
 		SouthPanel.setLayout(new MigLayout("wrap, fill", "[][]", "[]"));
@@ -234,8 +193,8 @@ public class BachecaFrame extends JFrame {
 			ConfermaBtn = new JButton("Conferma\r\n");
 			ConfermaBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			ConfermaBtn.setFont(new Font("Tahoma", Font.PLAIN, 12));
-			ConfermaBtn.setForeground(c.white);
-			ConfermaBtn.setBackground(c.scBlue);
+			ConfermaBtn.setForeground(t.white);
+			ConfermaBtn.setBackground(t.scBlue);
 			ConfermaBtn.setPreferredSize(new Dimension(150, 35));
 			ConfermaBtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {

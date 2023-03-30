@@ -1,6 +1,5 @@
 package GUI;
 
-import java.awt.EventQueue;
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,27 +9,27 @@ import java.awt.Component;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.border.EmptyBorder;
 
-import DAO.SessioneDAO;
-import linker.Controller;
 import linker.ControllerLink;
+import myTools.myTemplates;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
 import java.awt.CardLayout;
-import java.awt.FlowLayout;
 
 public class InfoConferenzaFrame extends JFrame {
 	
 	private ControllerLink controllerLink;
 
+	private myTemplates t = new myTemplates();
+	
 	private JLabel NomeConferenzaLbl;
 	private JPanel NorthCentrPanel;
 	private JLabel TemaLbl;
 	private JLabel DataInizioLbl;
 	private JLabel SpazioLbl;
 	private JLabel DataFineLbl;
-	private JLabel DescrizioneLbl;
+	private JTextArea DescrizioneLbl;
 	
 	private JPanel CentrPanel;
 	
@@ -54,6 +53,7 @@ public class InfoConferenzaFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(false);
 		setResizable(false);
+		setIconImage(new ImageIcon(getClass().getResource("/Images/mini_logo.png")).getImage());
 		
 		JPanel MainPanel = new JPanel();
 		MainPanel.setBackground(new Color(246, 247, 248));
@@ -99,12 +99,17 @@ public class InfoConferenzaFrame extends JFrame {
 					DataFineLbl = new JLabel("Data Fine");
 					DataFineLbl.setFont(new Font("Calibri Light", Font.PLAIN, 24));
 					DatePanel.add(DataFineLbl, "cell 2 0,alignx left,aligny center");
-				
-				DescrizioneLbl = new JLabel("Descrizione");
-				DescrizioneLbl.setPreferredSize(new Dimension(54, 50));
-				DescrizioneLbl.setFont(new Font("Calibri Light", Font.PLAIN, 22));
-				DescrizioneLbl.setHorizontalAlignment(SwingConstants.CENTER);
-				NorthPanel.add(DescrizioneLbl, BorderLayout.SOUTH);
+					
+					DescrizioneLbl = new JTextArea("Descrizione");
+					DescrizioneLbl.setLineWrap(true);
+					DescrizioneLbl.setBorder(null);
+					DescrizioneLbl.setWrapStyleWord(true);
+					DescrizioneLbl.setAlignmentX(JTextArea.CENTER_ALIGNMENT);
+					DescrizioneLbl.setAlignmentY(JTextArea.CENTER_ALIGNMENT);
+					DescrizioneLbl.setPreferredSize(new Dimension(54, 50));
+					DescrizioneLbl.setFont(new Font("Calibri Light", Font.PLAIN, 20));
+					DescrizioneLbl.setBackground(t.lGray);
+					NorthPanel.add(DescrizioneLbl, BorderLayout.SOUTH);
 				
 				
 			CentrPanel = new JPanel();
@@ -163,35 +168,20 @@ public class InfoConferenzaFrame extends JFrame {
 					IscrizioneCardPanel.add(GiàIscrittoLbl, "2");
 	}
 	
-	public JLabel getNomeConferenzaLbl() {
-		return NomeConferenzaLbl;
-	}
+	public JLabel getNomeConferenzaLbl() { return NomeConferenzaLbl; }
 	
-	public JLabel getTemaLbl() {
-		return TemaLbl;
-	}
+	public JLabel getTemaLbl() { return TemaLbl; }
 	
-	public JLabel getDataInizioLbl() {
-		return DataInizioLbl;
-	}
+	public JLabel getDataInizioLbl() { return DataInizioLbl; }
 	
-	public JLabel getDataFineLbl() {
-		return DataFineLbl;
-	}
+	public JLabel getDataFineLbl() { return DataFineLbl; }
 	
-	public JLabel getDescrizioneLbl() {
-		return DescrizioneLbl;
-	}
+	public JTextArea getDescrizioneLbl() { return DescrizioneLbl; }
 	
-	public JButton getIndietroBtn() {
-		return IndietroBtn;
-	}
 	
-	public CardLayout getIscrizioneCardLayout() {
-		return IscrizioneCardLayout;
-	}
+	public JButton getIndietroBtn() { return IndietroBtn; }
 	
-	public JPanel getIscrizioneCardPanel() {
-		return IscrizioneCardPanel;
-	}
+	public CardLayout getIscrizioneCardLayout() { return IscrizioneCardLayout; }
+	
+	public JPanel getIscrizioneCardPanel() { return IscrizioneCardPanel; }
 }

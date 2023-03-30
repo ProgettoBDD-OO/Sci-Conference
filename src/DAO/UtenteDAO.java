@@ -75,6 +75,24 @@ public class UtenteDAO {
 		} catch (SQLException e) { e.printStackTrace(); }
     }
     
+    public boolean checkEmail(String email) {
+    	
+    	 String select = "SELECT email FROM utenti WHERE email = '" + email + "'";
+         boolean EmailUtilizzabile = true;
+    	 
+         try {
+
+             PreparedStatement statement = DataBase.getConnection().prepareStatement(select);
+
+             ResultSet rs = statement.executeQuery();
+             
+             while (rs.next()) { EmailUtilizzabile = false; }
+
+         } catch (Exception e) { System.out.println(e); }
+         
+         return EmailUtilizzabile;
+    }
+    
     
     public void iscrizione(String email, int idConf) {
     	

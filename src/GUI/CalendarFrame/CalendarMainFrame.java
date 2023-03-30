@@ -20,10 +20,7 @@ public class CalendarMainFrame extends JFrame{
 		setLocationRelativeTo(null);
 		setVisible(false);
 		setResizable(false);
-			
-		ImageIcon IconLogo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\miniLogo.png");
-		Image IconAppLogo = IconLogo.getImage();
-		setIconImage(IconAppLogo);
+		setIconImage(new ImageIcon(getClass().getResource("/Images/mini_logo.png")).getImage());
 			
 		CalendarCustom MainPanel = new CalendarCustom(controllerLink);
 		setContentPane(MainPanel);

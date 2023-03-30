@@ -1,8 +1,9 @@
 package myTools;
 
 import java.awt.Color;
+import java.awt.Font;
 
-public class myColors {
+public class myTemplates {
 
 	public final Color white = new Color(255, 255, 255);
 	public final Color black = new Color(0, 0, 0);
@@ -17,4 +18,11 @@ public class myColors {
 	public final Color lGray = new Color(246, 247, 248);
 	public final Color gray = new Color(100, 105, 110);
 	public final Color altGray = new Color(150, 151, 152);
+	
+	public final Color red = new Color(212, 0, 0);
+	
+	public final Font myFont(int grandezzaFont) {
+		
+		return new Font("Calibri Light", Font.PLAIN, grandezzaFont);
+	}
 }

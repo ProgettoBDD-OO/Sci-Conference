@@ -9,6 +9,7 @@ import GUI.MainFrame.MainFrame;
 import linker.Controller;
 import linker.ControllerLink;
 import linker.DBConnection;
+import myTools.myTemplates;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -31,6 +32,8 @@ import java.util.Iterator;
 
 public class CalendarPanel extends JPanel {
 	
+	private myTemplates c = new myTemplates();
+	
 	private ControllerLink controllerLink;
 	
 	private int Month;
@@ -43,7 +46,7 @@ public class CalendarPanel extends JPanel {
 		
 		controllerLink = contrLink;
 		
-		setBackground(new Color(255, 255, 255));
+		setBackground(c.white);
 		setLayout(new GridLayout(7, 7, 0, 0));
 		
 		this.Month = Month;
@@ -91,7 +94,7 @@ public class CalendarPanel extends JPanel {
 		add(SabatoCell);
 		
 		CalendarCell DomenicaCell = new CalendarCell();
-		DomenicaCell.setForeground(new Color(0, 0, 200));
+		DomenicaCell.setForeground(c.scBlue);
 		DomenicaCell.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		DomenicaCell.setText("Dom");
 		DomenicaCell.asTitle();
@@ -109,9 +112,7 @@ public class CalendarPanel extends JPanel {
 	private void setDate(ArrayList<CalendarCell> arrCells) {
 		
 		Calendar Calendario = Calendar.getInstance();
-		Calendario.set(Calendar.YEAR, Year);
-		Calendario.set(Calendar.MONTH, Month - 1);
-		Calendario.set(Calendar.DATE, 1);
+		Calendario.set(Year, Month - 1, 1);
 		
 		int StartDay = Calendario.get(Calendar.DAY_OF_WEEK) - 2;
 		
@@ -122,36 +123,31 @@ public class CalendarPanel extends JPanel {
 		for (CalendarCell c : arrCells) {
 			
 			c.setText(Calendario.get(Calendar.DATE) + "");
-			c.setDate(Calendario.getTime());
+			c.setData(Calendario.getTime());
 			c.currentMonth(Calendario.get(Calendar.MONTH) == Month - 1);
-			addConferenzaToCell(c, conferenzaDAO);
+			addConferenzaToCell(c, c.getForeground(), conferenzaDAO);
 
 			Calendario.add(Calendar.DATE, 1);			
 		}
 	}
 	
-	private void addConferenzaToCell(CalendarCell cell, ConferenzaDAO confDAO) {
+	private void addConferenzaToCell(CalendarCell cell, Color color, ConferenzaDAO confDAO) {
 		
-		Conferenza conf = confDAO.getNomeDiviso(dateFormat.format(cell.getData()));
+		Conferenza conf = confDAO.getConferenzaByDate(dateFormat.format(cell.getData()));
 		
 		if (conf.getNome() != null) {
 			
-			cell.setFont(new Font("Calibri Light", Font.PLAIN, 15));				
-			cell.append("\n" + conf.getNomePrimaParte() +  "\n" + conf.getNomeSecondaParte());
-			cell.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			cell.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));				
+			cell.append("\n" + conf.getNome());
 			cell.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
 					controllerLink.goToConferenza("MainFrame", conf.getNome());
 				}
 				@Override
-				public void mouseEntered(MouseEvent e) {
-					cell.setForeground(new Color(0, 0, 200));
-				}
+				public void mouseEntered(MouseEvent e) { cell.setForeground(c.scBlue); }
 				@Override
-				public void mouseExited(MouseEvent e) {
-					cell.setForeground(new Color(20, 40, 60));
-				}
+				public void mouseExited(MouseEvent e) { cell.setForeground(color); }
 			});
 		}
 	}

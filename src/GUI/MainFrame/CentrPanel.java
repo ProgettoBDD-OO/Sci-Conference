@@ -1,6 +1,5 @@
 package GUI.MainFrame;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -9,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.naming.directory.ModificationItem;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,24 +20,31 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 import myTools.JLblButton;
-import myTools.myColors;
+import myTools.myTemplates;
 import net.miginfocom.swing.MigLayout;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 
 public class CentrPanel extends JPanel{
 
-	private myColors c = new myColors();
+	private myTemplates c = new myTemplates();
 	
-	private CardLayout CentralCardLayout;
+	private CardLayout CentrCardLayout;
 	private JPanel CentrCardPanel;
+	
+	private JLabel CentrLbl;
 	
 	private JButton AccediBtn;
 	private JButton RegistratiBtn;
 
-	private JPanel UserConfAfterAccess2;
+	private JPanel AfterAccess2;
 	private ArrayList<JLblButton> arrayLblButtons;
+	
+	private JLblButton AggiungiConfBtn;
+	private JLblButton ModifcaConfBtn;
+	private JLblButton RimuoviConfBtn;
 	
 	public CentrPanel() {
 		
@@ -52,11 +59,12 @@ public class CentrPanel extends JPanel{
 		LogoPanel.setLayout(new MigLayout("wrap, fill", "[]", "[]"));
 		add(LogoPanel, BorderLayout.NORTH);
 		
+			
 			JLabel LogoConteiner = new JLabel("");
 			LogoConteiner.setBounds(new Rectangle(0, 0, 460, 130));
 			LogoPanel.add(LogoConteiner, "cell 0 0,alignx center,aligny bottom");
 			
-			ImageIcon Logo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\logo.png");
+			ImageIcon Logo = new ImageIcon(getClass().getResource("/Images/logo.png"));
 			Image img = Logo.getImage();
 			Image imgScale = img.getScaledInstance(LogoConteiner.getWidth(), LogoConteiner.getHeight(), Image.SCALE_SMOOTH);
 			ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -68,37 +76,37 @@ public class CentrPanel extends JPanel{
 		UserConfPanel.setLayout(new BorderLayout(0, 0));
 		add(UserConfPanel, BorderLayout.CENTER);
 		
-			JLabel UserConfLbl = new JLabel("Le tue Conferenze");
-			UserConfLbl.setPreferredSize(new Dimension(89, 200));
-			UserConfLbl.setHorizontalAlignment(SwingConstants.CENTER);
-			UserConfPanel.add(UserConfLbl, BorderLayout.NORTH);
-			UserConfLbl.setForeground(c.scBlue);
-			UserConfLbl.setFont(new Font("Calibri Light", Font.PLAIN, 28));
+			CentrLbl = new JLabel("Le tue Conferenze");
+			CentrLbl.setPreferredSize(new Dimension(89, 200));
+			CentrLbl.setHorizontalAlignment(SwingConstants.CENTER);
+			UserConfPanel.add(CentrLbl, BorderLayout.NORTH);
+			CentrLbl.setForeground(c.scBlue);
+			CentrLbl.setFont(new Font("Calibri Light", Font.PLAIN, 28));
 			
 			
-			CentralCardLayout = new CardLayout();
+			CentrCardLayout = new CardLayout();
 			
 			CentrCardPanel = new JPanel();
 			CentrCardPanel.setBackground(c.white);
 			UserConfPanel.add(CentrCardPanel, BorderLayout.CENTER);
-			CentrCardPanel.setLayout(CentralCardLayout);
+			CentrCardPanel.setLayout(CentrCardLayout);
 			
-				JPanel UserConfBeforeAccess = new JPanel();
-				UserConfBeforeAccess.setBackground(c.white);
-				CentrCardPanel.add(UserConfBeforeAccess, "1");
-				UserConfBeforeAccess.setLayout(new BorderLayout(0, 0));
+				JPanel BeforeAccess = new JPanel();
+				BeforeAccess.setBackground(c.white);
+				CentrCardPanel.add(BeforeAccess, "1");
+				BeforeAccess.setLayout(new BorderLayout(0, 0));
 			
 					JLabel AccediRegistratiLbl = new JLabel("Accedi o Registrati per iscriverti ad una conferenza o visualizzare quelle a cui gia partecipi.");
 					AccediRegistratiLbl.setForeground(c.altGray);
 					AccediRegistratiLbl.setFont(new Font("Calibri Light", Font.PLAIN, 20));
 					AccediRegistratiLbl.setHorizontalAlignment(SwingConstants.CENTER);
-					UserConfBeforeAccess.add(AccediRegistratiLbl, BorderLayout.CENTER);
+					BeforeAccess.add(AccediRegistratiLbl, BorderLayout.CENTER);
 					
 					JPanel AccediRegistratiPanel = new JPanel();
 					AccediRegistratiPanel.setBackground(c.white);
 					AccediRegistratiPanel.setPreferredSize(new Dimension(10, 250));
 					AccediRegistratiPanel.setLayout(new MigLayout("wrap, fill", "[][::10px][]", "[]"));
-					UserConfBeforeAccess.add(AccediRegistratiPanel, BorderLayout.SOUTH);
+					BeforeAccess.add(AccediRegistratiPanel, BorderLayout.SOUTH);
 					
 						AccediBtn = new JLblButton(c.scBlue, "Accedi");
 						AccediBtn.setFont(new Font("Calibri Light", Font.PLAIN, 20));
@@ -137,40 +145,94 @@ public class CentrPanel extends JPanel{
 						});
 						
 						
-				JPanel UserConfAfterAccess1 = new JPanel();
-				UserConfAfterAccess1.setBackground(c.white);
-				CentrCardPanel.add(UserConfAfterAccess1, "2");
-				UserConfAfterAccess1.setLayout(new BorderLayout(0, 0));
+				JPanel AfterAccess1 = new JPanel();
+				AfterAccess1.setBackground(c.white);
+				CentrCardPanel.add(AfterAccess1, "2");
+				AfterAccess1.setLayout(new BorderLayout(0, 0));
 				
 				JLabel NoConfLbl = new JLabel("Non sei iscritto ancora ad una conferenza");
 				NoConfLbl.setForeground(c.altGray);
 				NoConfLbl.setFont(new Font("Calibri Light", Font.PLAIN, 20));
 				NoConfLbl.setHorizontalAlignment(SwingConstants.CENTER);
-				UserConfAfterAccess1.add(NoConfLbl, BorderLayout.CENTER);
+				AfterAccess1.add(NoConfLbl, BorderLayout.CENTER);
 				
 				JScrollPane ConfScroller = new JScrollPane();
 				CentrCardPanel.add(ConfScroller, "3");
 				ConfScroller.setBackground(c.white);
 				ConfScroller.setBorder(new EmptyBorder(0, 110, 30, 100));
 				
-				UserConfAfterAccess2 = new JPanel();
-				UserConfAfterAccess2.setBackground(c.white);
-				UserConfAfterAccess2.setLayout(new BoxLayout(UserConfAfterAccess2, BoxLayout.Y_AXIS));
-				ConfScroller.setViewportView(UserConfAfterAccess2);
+				AfterAccess2 = new JPanel();
+				AfterAccess2.setBackground(c.white);
+				AfterAccess2.setLayout(new BoxLayout(AfterAccess2, BoxLayout.Y_AXIS));
+				ConfScroller.setViewportView(AfterAccess2);
+				
+				JPanel AdminPanel = new JPanel();
+				AdminPanel.setBackground(new Color(255, 255, 255));
+				CentrCardPanel.add(AdminPanel, "4");
+				AdminPanel.setLayout(new MigLayout("wrap, fill", "[][][]", "[]"));
+				
+					AggiungiConfBtn = new JLblButton(c.scBlue, "Aggiungi una conferenza");
+					AggiungiConfBtn.setFont(new Font("Calibri Light", Font.PLAIN, 20));
+					AggiungiConfBtn.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseEntered(MouseEvent e) {
+							AggiungiConfBtn.setBorderPainted(true);
+						}
+						@Override
+						public void mouseExited(MouseEvent e) {
+							AggiungiConfBtn.setBorderPainted(false);
+						}
+					});
+					AdminPanel.add(AggiungiConfBtn, "cell 0 0, alignx center, aligny center");
+					
+					ModifcaConfBtn = new JLblButton(c.scBlue, "Modifica una conferenza");
+					ModifcaConfBtn.setFont(new Font("Calibri Light", Font.PLAIN, 20));
+					ModifcaConfBtn.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseEntered(MouseEvent e) {
+							ModifcaConfBtn.setBorderPainted(true);
+						}
+						@Override
+						public void mouseExited(MouseEvent e) {
+							ModifcaConfBtn.setBorderPainted(false);
+						}
+					});
+					AdminPanel.add(ModifcaConfBtn, "cell 1 0, alignx center, aligny center");
+					
+					RimuoviConfBtn = new JLblButton(c.scBlue, "Rimuovi una conferenza");
+					RimuoviConfBtn.setFont(new Font("Calibri Light", Font.PLAIN, 20));
+					RimuoviConfBtn.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseEntered(MouseEvent e) {
+							RimuoviConfBtn.setForeground(c.red);
+						}
+						@Override
+						public void mouseExited(MouseEvent e) {
+							RimuoviConfBtn.setForeground(c.scBlue);
+						}
+					});
+					AdminPanel.add(RimuoviConfBtn, "cell 2 0, alignx center, aligny center");
 				
 				arrayLblButtons = new ArrayList<JLblButton>();
 	}
-	
 
-	public CardLayout getCentralCardLayout() { return CentralCardLayout;}
+	public CardLayout getCentrCardLayout() { return CentrCardLayout; }
 	
-	public JPanel getCentrCardPanel() { return CentrCardPanel;	 }
+	public JPanel getCentrCardPanel() { return CentrCardPanel; }
+	
+	public JLabel getCentrLbl() { return CentrLbl; }
 	
 	public JButton getAccediBtn() { return AccediBtn; }
 	
 	public JButton getRegistratiBtn() { return RegistratiBtn; }
 	
-	public JPanel getUserConfAfterAccess2() { return UserConfAfterAccess2;}
+	
+	public JPanel getUserConfAfterAccess2() { return AfterAccess2;}
 	
 	public ArrayList<JLblButton> getArrayLblButtons(){ return arrayLblButtons; }
+	
+	
+	public JLblButton getAggiungiConfBtn() { return AggiungiConfBtn; }
+	
+	public JLblButton getModificaConfBtn() { return ModifcaConfBtn; }
 }

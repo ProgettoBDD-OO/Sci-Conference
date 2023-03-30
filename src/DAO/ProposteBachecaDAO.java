@@ -1,26 +1,26 @@
 package DAO;
 
+import DTO.ProposteBacheca;
+import linker.DBConnection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import DTO.Conferenza;
-import DTO.ConferenzaBacheca;
-import linker.DBConnection;
 
-public class ConferenzaBachecaDAO {
+public class ProposteBachecaDAO {
 	
 	private DBConnection DataBase;
 	
-	public ConferenzaBachecaDAO() {
+	public ProposteBachecaDAO() {
 		
 		DataBase = new DBConnection();
 		DataBase.connettiDB();
 	}
 	
 	
-	public void addConf(ConferenzaBacheca confBacheca) {
+	public void addConf(ProposteBacheca confBacheca) {
 		
 		String insert = "INSERT INTO proposte_bacheca VALUES (DEFAULT, '"+ confBacheca.getNome() +"', '"+ confBacheca.getDescrizione() +"', '"+ confBacheca.getTema() +"');";
 		
@@ -33,9 +33,9 @@ public class ConferenzaBachecaDAO {
 	}
 	
 	
-	public ArrayList<ConferenzaBacheca> getConferenzeBacheca() {
+	public ArrayList<ProposteBacheca> getConferenzeBacheca() {
 		
-		ArrayList<ConferenzaBacheca> ConferenzeBacheca = new ArrayList<ConferenzaBacheca>();
+		ArrayList<ProposteBacheca> ConferenzeBacheca = new ArrayList<ProposteBacheca>();
 		
 		try {
 			
@@ -44,7 +44,7 @@ public class ConferenzaBachecaDAO {
 			
 			while (rs.next()) {
 				
-				ConferenzaBacheca confBacheca = new ConferenzaBacheca();
+				ProposteBacheca confBacheca = new ProposteBacheca();
 				confBacheca.setId(rs.getInt(1));
 				confBacheca.setNome(rs.getString(2));
 				confBacheca.setDescrizione(rs.getString(3));
@@ -55,11 +55,14 @@ public class ConferenzaBachecaDAO {
 			return ConferenzeBacheca;
 			
 		} catch (Exception e) { return ConferenzeBacheca; }
+		
+		finally { DataBase.closeConnection(); }
 	}
 	
-	public ConferenzaBacheca getConferenzaBacheca(String nome) {
+	
+	public ProposteBacheca getConferenzaBacheca(String nome) {
 		
-		ConferenzaBacheca confBacheca = new ConferenzaBacheca();
+		ProposteBacheca confBacheca = new ProposteBacheca();
 		
 		try {
 			

@@ -18,11 +18,12 @@ import java.awt.event.KeyEvent;
 
 
 public class MainFrame extends JFrame {
+
+	private ControllerLink controllerLink;
 	
 	private WestPanel SxPanel;
 	private CentrPanel CtrPanel;
 	private EastPanel DxPanel;
-	private ControllerLink controllerLink;
 	private Controller controller;
 	private Utente UtenteLoggato;
 	
@@ -34,7 +35,9 @@ public class MainFrame extends JFrame {
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(1400, 800);
+		setMinimumSize(new Dimension(1200, 700));
 		setLocationRelativeTo(null);
+		setIconImage(new ImageIcon(getClass().getResource("/Images/mini_logo.png")).getImage());
 		
 		JPanel MainPanel = new JPanel();
 		MainPanel.setBorder(null);
@@ -42,9 +45,6 @@ public class MainFrame extends JFrame {
 		setContentPane(MainPanel);
 		MainPanel.setLayout(new BorderLayout(0, 0));
 		
-		ImageIcon IconLogo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\miniLogo.png");
-		Image IconAppLogo = IconLogo.getImage();
-		setIconImage(IconAppLogo);
 		
 		
 		
@@ -102,6 +102,13 @@ public class MainFrame extends JFrame {
 			CtrPanel.getAccediBtn().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					controllerLink.goToLogIn();
+				}
+			});
+			
+			CtrPanel.getAggiungiConfBtn().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					controllerLink.goToAggiuntaConf();
 				}
 			});
 			

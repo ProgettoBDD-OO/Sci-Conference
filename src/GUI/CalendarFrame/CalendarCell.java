@@ -14,31 +14,23 @@ public class CalendarCell extends JTextArea{
 	private boolean Title;
 	
 	public CalendarCell() {
-		setForeground(new Color(20, 40, 60));
 		
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		setEditable(false);
 		setLineWrap(true);
+		setWrapStyleWord(true);
 		setBackground(new Color(255, 255, 255));
 		setFont(new Font("Calibri Light", Font.PLAIN, 17));			
 	}
 	
 	
-	public void asTitle() {
-		Title = true;
-	}
+	public void asTitle() { Title = true; }
 	
-	public boolean isTitle() {
-		return Title;
-	}
+	public boolean isTitle() { return Title; }
 	
-	public void setDate(Date Data) {
-		this.Data = Data;
-	}
+	public void setData(Date Data) { this.Data = Data; }
 	
-	public Date getData() {
-		return Data;
-	}
+	public Date getData() { return Data; }
 	
 	public void currentMonth(boolean Act) {
 		if(Act) {

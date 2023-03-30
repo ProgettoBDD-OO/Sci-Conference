@@ -1,6 +1,6 @@
-package myTools;
+package myException;
 
 public class DifferentPasswordException extends Exception {
 	
-	public DifferentPasswordException(String message) { super(message); }
+	public DifferentPasswordException() { super("Il campo per confermare la password non corrisponde."); }
 }

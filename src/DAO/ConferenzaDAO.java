@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class ConferenzaDAO {
@@ -71,23 +70,22 @@ public class ConferenzaDAO {
 		} catch (Exception e) { return conf; }
 	}
 	
-	public Conferenza getNomeDiviso(String dataConf) {
+	public Conferenza getConferenzaByDate(String dataConf) {
 		
 		Conferenza conf = new Conferenza();
 		
 		try {
 			
-			String query = "SELECT primasecondospazio(nome), doposecondospazio(nome), data_inizio, data_fine, descrizione, tema FROM conferenze_scientifiche WHERE data_inizio = '"+dataConf+"';";
+			String query = "SELECT * FROM conferenze_scientifiche WHERE data_inizio = '"+dataConf+"';";
 			
 			PreparedStatement statement = DataBase.getConnection().prepareStatement(query);
 			ResultSet rs = statement.executeQuery();
 			
 			while (rs.next()) {
 				
-				conf.setNome(rs.getString(1) + rs.getString(2));
+				conf.setId(rs.getInt(1));
 				
-				conf.setNomePrimaParte(rs.getString(1));
-				conf.setNomeSecondaParte(rs.getString(2));
+				conf.setNome(rs.getString(2));
 					
 				conf.setDataInizio(rs.getDate(3));
 				conf.setDataFine(rs.getDate(4));
@@ -123,10 +121,9 @@ public class ConferenzaDAO {
 
             return Conferenze;
 
-        } catch (Exception e) {
-            e.getMessage();
-            return Conferenze;
-        }
+        } catch (Exception e) { return Conferenze; }
+         
+        finally { DataBase.closeConnection(); }
     }
 		
     public ArrayList<Conferenza> getConferenzeRicerca(String query){
@@ -145,11 +142,12 @@ public class ConferenzaDAO {
                conf.setTema(rs.getString(2));
                Conferenze.add(conf);
            }
-
+           
            return Conferenze;
 
        } catch (SQLException e) { return Conferenze; }
-
+        
+       finally { DataBase.closeConnection(); }
 	}
 	
     public boolean checkIscrizione(String email, int id_conferenza) {
@@ -166,6 +164,22 @@ public class ConferenzaDAO {
 			
 		} catch (SQLException e) { e.printStackTrace(); }
 		
+		finally { DataBase.closeConnection(); }
+		
 		return ConferenzaPresente;
 	}
+    
+    public void insertConferenza(String query) {    //qui la query è preparaConferenza1
+
+        String insert = "INSERT INTO conferenze_scientifiche VALUES (DEFAULT," + query + ");";
+
+        try {
+
+            PreparedStatement statement = DataBase.getConnection().prepareStatement(insert);
+            statement.executeUpdate();
+
+        } catch (SQLException e) { e.printStackTrace(); }
+
+        System.out.print(insert);
+    }	
 }

@@ -16,22 +16,23 @@ import javax.swing.border.MatteBorder;
 
 import linker.ControllerLink;
 import myTools.JLblButton;
-import myTools.myColors;
+import myTools.myTemplates;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 
 public class SignUpFrame extends JFrame {
 	
 	private ControllerLink controllerLink;
 	
-	private myColors c;
+	private myTemplates c = new myTemplates();
 	
 	private JTextField UsernameFld;
 	private JTextField EmailFld;
-	private JTextField PasswordFld;
-	private JTextField CnfrmPasswordFld;
+	private JPasswordField PasswordFld;
+	private JPasswordField CnfrmPasswordFld;
 	private JButton AnnullaSignUpBtn;
 	private JButton ConfermaSignUpBtn;
 	private JButton goToLogInBtn;
@@ -46,11 +47,7 @@ public class SignUpFrame extends JFrame {
 		setSize(700, 800);
 		setLocationRelativeTo(null);
 		setVisible(false);
-		
-		
-		ImageIcon IconLogo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\miniLogo.png");
-		Image IconAppLogo = IconLogo.getImage();
-		setIconImage(IconAppLogo);
+		setIconImage(new ImageIcon(getClass().getResource("/Images/mini_logo.png")).getImage());
 		
 		
 		JPanel MainPanel = new JPanel();
@@ -112,7 +109,7 @@ public class SignUpFrame extends JFrame {
 				PasswordLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 				CentrPanel.add(PasswordLbl, "cell 0 4,alignx center,aligny bottom");
 				
-				PasswordFld = new JTextField();
+				PasswordFld = new JPasswordField();
 				PasswordFld.setBorder(new MatteBorder(1, 1, 1, 1, c.scBlue));
 				PasswordFld.setForeground(c.tangaroa);
 				PasswordFld.setFont(new Font("Calibri Light", Font.PLAIN, 18));
@@ -125,7 +122,7 @@ public class SignUpFrame extends JFrame {
 				CnfrmPasswordLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 				CentrPanel.add(CnfrmPasswordLbl, "cell 0 6,alignx center,aligny bottom");
 				
-				CnfrmPasswordFld = new JTextField();
+				CnfrmPasswordFld = new JPasswordField();
 				CnfrmPasswordFld.setBorder(new MatteBorder(1, 1, 1, 1, c.scBlue));
 				CnfrmPasswordFld.setForeground(c.tangaroa);
 				CnfrmPasswordFld.setFont(new Font("Calibri Light", Font.PLAIN, 18));
@@ -207,7 +204,7 @@ public class SignUpFrame extends JFrame {
 						}
 					});
 					ActionPanel.add(ConfermaSignUpBtn, "cell 1 0,alignx left,aligny bottom");
- }
+	}
 	
 	public JTextField getPasswordFld() {
 		return PasswordFld;
@@ -246,20 +243,25 @@ public class SignUpFrame extends JFrame {
 	public JButton getConfermaSignUpBtn() {
 		return ConfermaSignUpBtn;
 	}
-	
-	public void setUsernameNull() {
+
+	public void setFieldsNull(){
 		UsernameFld.setText("");
-	}
-
-	public void setEmailNull() {
 		EmailFld.setText("");
-	}
-
-	public void setPasswordTxtNull() {
 		PasswordFld.setText("");
-	}
-
-	public void setCnfrmPasswordTxtNull() {
 		CnfrmPasswordFld.setText("");
+	}
+	
+	public void setEmailError() {
+		
+		EmailFld.setText("");
+		EmailFld.setBorder(new MatteBorder(1, 1, 1, 1, c.red));
+	}
+	
+	public void setPasswordError() {
+		
+		PasswordFld.setText("");
+		CnfrmPasswordFld.setText("");
+		PasswordFld.setBorder(new MatteBorder(1, 1, 1, 1, c.red));
+		CnfrmPasswordFld.setBorder(new MatteBorder(1, 1, 1, 1, c.red));
 	}
 }

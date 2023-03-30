@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
 import myTools.JLblButton;
-import myTools.myColors;
+import myTools.myTemplates;
 import net.miginfocom.swing.MigLayout;
 
 import java.awt.BorderLayout;
@@ -28,7 +28,7 @@ import javax.swing.border.EmptyBorder;
 
 public class WestPanel extends JPanel{
 	
-	myColors c = new myColors();
+	myTemplates c = new myTemplates();
 	
 	private CardLayout UserCardLayout;
 	private JPanel UserCardPanel;

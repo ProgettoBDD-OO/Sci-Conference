@@ -1,6 +1,6 @@
-package myTools;
+package myException;
 
 public class UserNotFoundException extends Exception {
 	
-	public UserNotFoundException(String message) { super(message);	}
+	public UserNotFoundException() { super("Utente non trovato nel Database.");	}
 }

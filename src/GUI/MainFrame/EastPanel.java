@@ -1,6 +1,5 @@
 package GUI.MainFrame;
 
-import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -11,34 +10,22 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTextField;
-import javax.swing.JToggleButton;
 import javax.swing.border.MatteBorder;
 
-import linker.Controller;
-import linker.ControllerLink;
 import myTools.JLblButton;
-import myTools.myColors;
+import myTools.myTemplates;
 import net.miginfocom.swing.MigLayout;
 
 import java.awt.BorderLayout;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.SwingConstants;
-import java.awt.Rectangle;
 import javax.swing.BoxLayout;
-import java.awt.FlowLayout;
-import java.awt.Component;
 import javax.swing.border.EmptyBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JPopupMenu;
-import javax.swing.JMenuItem;
 
 public class EastPanel extends JPanel {
 
-	myColors c = new myColors();
+	myTemplates c = new myTemplates();
 	
 	private JPanel ResearchConteiner;
 	private JButton FilterBtn;
@@ -191,9 +178,7 @@ public class EastPanel extends JPanel {
 	
 	public ArrayList<JLblButton> getArrayConfBacheca(){ return arrayConfBacheca; }
 	
-	public JPopupMenu getPopupMenu() {
-		return popupMenu;
-	}
+	public JPopupMenu getPopupMenu() { return popupMenu; }
 	
 	public ConferenzaBachecaPanel getCbPanel() { return CbPanel; }
 	

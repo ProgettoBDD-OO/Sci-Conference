@@ -29,4 +29,13 @@ public class DBConnection {
     } 
 
     public Connection getConnection() { return Connessione; }
+    
+    public void closeConnection() {
+
+        try {
+
+            if (Connessione != null) { Connessione.close(); }
+
+         } catch (SQLException e) {e.printStackTrace();}
+    }
 }

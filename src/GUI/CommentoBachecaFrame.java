@@ -31,10 +31,7 @@ public class CommentoBachecaFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(false);
 		setResizable(false);
-		
-		ImageIcon IconLogo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\miniLogo.png");
-		Image IconAppLogo = IconLogo.getImage();
-		setIconImage(IconAppLogo);
+		setIconImage(new ImageIcon(getClass().getResource("/Images/mini_logo.png")).getImage());
 		
 		JPanel MainPanel = new JPanel();
 		MainPanel.setBorder(new EmptyBorder(10, 7, 7, 7));

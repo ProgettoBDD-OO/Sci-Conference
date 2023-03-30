@@ -22,7 +22,7 @@ public class JLblButton extends JButton {
 		setFocusPainted(false);
 		setContentAreaFilled(false);
 		setOpaque(false);
-		setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(100, 105, 110)));
+		setBorder(new MatteBorder(0, 0, 1, 0, c));
 		setBorderPainted(false);
 		
 		if (Info.length > 1) {

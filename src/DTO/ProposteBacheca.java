@@ -1,11 +1,12 @@
 package DTO;
 
-public class ConferenzaBacheca {
+public class ProposteBacheca {
 	
 	private int Id;
 	private String Nome;
 	private String Descrizione;
 	private String Tema;
+	
 	
 	public int getId() {return Id; }
 

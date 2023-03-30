@@ -3,14 +3,12 @@ package DTO;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Conferenza extends ConferenzaBacheca{
+public class Conferenza extends ProposteBacheca{
 	
 	private Calendar DataInizio = Calendar.getInstance();
 	private Calendar DataFine = Calendar.getInstance();
+	private int IdCollocazione;
 	
-	private String NomePrimaParte;
-	private String NomeSecondaParte;
-
     
     public Calendar getDataInizio() { return DataInizio; }
 
@@ -22,12 +20,7 @@ public class Conferenza extends ConferenzaBacheca{
     public void setDataFine(Date dataFine) { DataFine.setTime(dataFine); }
     
     
-    public String getNomePrimaParte() { return NomePrimaParte; }
+    public int getIdCollocazione() { return IdCollocazione; }
     
-    public void setNomePrimaParte(String nomePrimaParte) { NomePrimaParte = nomePrimaParte; }
-    
-    
-    public String getNomeSecondaParte() { return NomeSecondaParte; }
-    
-    public void setNomeSecondaParte(String nomeSecondaParte) { NomeSecondaParte = nomeSecondaParte; }
+    public void setIdCollocazione(int idCollocazione) { IdCollocazione = idCollocazione; }
 }

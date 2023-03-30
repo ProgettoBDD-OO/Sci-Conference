@@ -13,7 +13,8 @@ public class ConferenzaBachecaPanel extends JPanel {
 	
 	private JLabel NomeLbl;
 	private JLabel TemaLbl;
-	private JLabel DescrizioneLbl;
+	private JLabel DescrizioneLbl1;
+	private JLabel DescrizioneLbl2;
 	
 	public ConferenzaBachecaPanel() {
 		
@@ -26,27 +27,34 @@ public class ConferenzaBachecaPanel extends JPanel {
 		NomeLbl.setPreferredSize(new Dimension(46, 50));
 		add(NomeLbl, BorderLayout.NORTH);
 		
+		
+		JPanel DescrizioneConteiner = new JPanel();
+		DescrizioneConteiner.setBackground(new Color(255, 255, 255));
+		add(DescrizioneConteiner, BorderLayout.CENTER);
+		DescrizioneConteiner.setLayout(new MigLayout("wrap, fill", "[]", "[][]"));
+		
+			DescrizioneLbl1 = new JLabel("Descrizione");
+			DescrizioneLbl1.setForeground(new Color(0, 0, 200));
+			DescrizioneLbl1.setFont(new Font("Calibri Light", Font.PLAIN, 14));
+			DescrizioneConteiner.add(DescrizioneLbl1, "cell 0 0,alignx center,aligny center");
+			
+			DescrizioneLbl2 = new JLabel("Descrizione");
+			DescrizioneLbl2.setForeground(new Color(0, 0, 200));
+			DescrizioneLbl2.setFont(new Font("Calibri Light", Font.PLAIN, 14));
+			DescrizioneConteiner.add(DescrizioneLbl2, "cell 0 1,alignx center,aligny center");
+		
 		TemaLbl = new JLabel("Tema");
 		TemaLbl.setPreferredSize(new Dimension(46, 25));
 		TemaLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		TemaLbl.setFont(new Font("Calibri Light", Font.PLAIN, 16));
 		add(TemaLbl, BorderLayout.SOUTH);
-		
-		JPanel DescrizioneConteiner = new JPanel();
-		DescrizioneConteiner.setBackground(new Color(255, 255, 255));
-		add(DescrizioneConteiner, BorderLayout.CENTER);
-		DescrizioneConteiner.setLayout(new MigLayout("wrap, fill", "[]", "[]"));
-		
-		DescrizioneLbl = new JLabel("Descrizione");
-		DescrizioneLbl.setForeground(new Color(0, 0, 200));
-		DescrizioneConteiner.add(DescrizioneLbl, "cell 0 0,alignx center,aligny center");
-		DescrizioneLbl.setFont(new Font("Calibri Light", Font.PLAIN, 14));
-		DescrizioneLbl.setHorizontalAlignment(SwingConstants.CENTER);
 	}
 	
 	public void setNomeLbl(String nome) { NomeLbl.setText(nome); }
 
     public void setTemaLbl(String tema) { TemaLbl.setText(tema); }
 
-    public void setDescrizioneLbl(String descrizione) { DescrizioneLbl.setText(descrizione); }
+    public void setDescrizioneLbl1(String descrizione) { DescrizioneLbl1.setText(descrizione); }
+    
+    public void setDescrizioneLbl2(String descrizione) { DescrizioneLbl2.setText(descrizione); }
 }

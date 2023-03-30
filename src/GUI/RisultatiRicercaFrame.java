@@ -9,6 +9,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -42,6 +43,7 @@ public class RisultatiRicercaFrame extends JFrame{
 		setLocationRelativeTo(null);
 		setVisible(false);
 		setResizable(false);
+		setIconImage(new ImageIcon(getClass().getResource("/Images/mini_logo.png")).getImage());
 		
 		JPanel MainPanel = new JPanel();
 		MainPanel.setBackground(new Color(255, 255, 255));

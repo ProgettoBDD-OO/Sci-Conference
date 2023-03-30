@@ -1,6 +1,9 @@
-package myTools;
+package GUI.FilterFrame;
 
 import javax.swing.*;
+
+import myTools.JLblButton;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;

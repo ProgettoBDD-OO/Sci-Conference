@@ -2,7 +2,7 @@ package GUI;
 
 import linker.ControllerLink;
 import myTools.JLblButton;
-import myTools.myColors;
+import myTools.myTemplates;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -19,15 +19,16 @@ import javax.swing.border.MatteBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import net.miginfocom.swing.MigLayout;
+import javax.swing.JPasswordField;
 
 public class LogInFrame extends JFrame {
 	
 	private ControllerLink controllerLink;
 	
-	private myColors c;
+	private myTemplates c = new myTemplates();
 	
 	private JTextField UsernameEmailFld;
-	private JTextField PasswordFld;
+	private JPasswordField PasswordFld;
 	private JLblButton goToSignUpBtn;
 	private JButton AnnullaLogInBtn;
 	private JButton ConfermaLogInBtn;
@@ -42,11 +43,7 @@ public class LogInFrame extends JFrame {
 		setSize(600, 700);
 		setLocationRelativeTo(null);
 		setVisible(false);
-		
-		
-		ImageIcon IconLogo = new ImageIcon("C:\\Users\\Raul\\OneDrive\\Documenti\\Progetto OO-DB\\miniLogo.png");
-		Image IconAppLogo = IconLogo.getImage();
-		setIconImage(IconAppLogo);
+		setIconImage(new ImageIcon(getClass().getResource("/Images/mini_logo.png")).getImage());
 		
 		
 		JPanel MainPanel = new JPanel();
@@ -93,7 +90,7 @@ public class LogInFrame extends JFrame {
 					PasswordLbl.setFont(new Font("Calibri Light", Font.PLAIN, 18));
 					CentrPanel.add(PasswordLbl, "cell 0 2, alignx center, aligny bottom");
 					
-					PasswordFld = new JTextField();
+					PasswordFld = new JPasswordField();
 					PasswordFld.setBorder(new MatteBorder(1, 1, 1, 1, c.scBlue));
 					PasswordFld.setForeground(c.tangaroa);
 					PasswordFld.setFont(new Font("Calibri Light", Font.PLAIN, 18));
