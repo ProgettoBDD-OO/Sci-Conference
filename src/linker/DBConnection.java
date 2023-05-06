@@ -11,7 +11,7 @@ public class DBConnection {
     private DBConnection()  {
     	
         String user = "postgres";
-        String password = "Sroberto20";
+        String password = "3456";
         String url = "jdbc:postgresql://localhost/Sci-ConferenceDB";
         
         try { Class.forName("org.postgresql.Driver"); } 
