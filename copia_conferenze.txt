@@ -1,0 +1,236 @@
+('1003', 'L''Atomica di Oppenheimer', '13-02-2024', '15-02-2024', 'Chi, come e cosa portò la creazione dell''ordigno nucleare.', 'Fisica'),
+('1004', 'Attraversare un wormhole', '02-12-2023', '03-12-2023', 'Alla scoperta dei "tunnel spaziali" ipotizzati da Einstein e Ross che permetterebbero il viaggio nel tempo', 'Astrologia'),
+('1005', 'La teoria delle stringhe', '18-09-2023', '24-09-2023', 'Su cosa si basa e perché è così importante.', 'Fisica');
+
+('1020', 'IA','17/10/2023', '20/10/2023', 'Presentazione dei recenti sviluppi della nuova frontiera dell’intelligenza artificiale.', 'Informatica'),
+
+('1021', 'Il telescopio di Galileo', '10/05/2023', '12/05/2023', 'Ricostruzione degli eventi che portarono l’astronomo Galileo Galilei alla creazione di un oggetto ancora oggi fondamentale.', 'Astrologia'),
+
+('1022', 'Heisenberg', '24/09/2023', '27/09/2023','Esposizione delle principali scoperte fisiche del premio Nobel Werner Heisenberg', 'Fisica'),
+
+('1023', 'Europa, Ganymede, Callisto e…', '27/11/2023', '30/11/2023','Discussione sulle recenti conquiste spaziali come la scoperta di nuove lune di Giove', 'Astrologia');
+(1112, 'I computer del futuro', '2023-03-12', '2023-03-13', 'In concomitanza di un informatico Google all''interno dei computer quantistici e dei loro segreti', 'Informatica', 2026),
+(1100, 'Chimica moderna', '2023-03-20', '2023-03-22', 'Uno sguardo alle origini della chimica', 'Chimica', 2015),
+(1104, 'Un cielo sano', '2023-03-24', '2023-03-25', 'Discussione sugli effetti degli agenti inquinanti nell''atmosfera', 'Sostenibilità', 2034),
+(1110, 'Tutto ha un peso', '2023-04-23', '2023-04-26', 'Scoprendo il bosone di Higgs e che ruolo svolge nell''universo', 'Fisica', 2028),
+(1101, 'Ieri, Oggi, Domani', '2023-04-25', '2023-04-30', 'La storia del nostro pianeta e di come lo abbiamo abbandonato', 'Ambiente', 2013),
+(1000, 'Saggitarius A*', '2023-04-27', '2023-04-29', 'Come e perché fotografare buchi neri.', 'Astrologia', 2000),
+(1021, 'Il telescopio di Galileo', '2023-05-10', '2023-05-12', 'Ricostruzione degli eventi che portarono l’astronomo Galileo Galilei alla creazione di un oggetto ancora oggi fondamentale.', 'Astrologia', 2015),
+(1105, 'Alta quota', '2023-05-15', '2023-05-19', 'Insieme al Premio Nobel per la Fisica Antonio Calcasti per conoscere le leggi che alzano in volo gli aerei', 'Fisica', 2027),
+(1002, 'Digitalizzare il Paese', '2023-05-17', '2023-05-19', 'Una discussione sullo sviluppo tecnologico nel nostro paese.', 'Informatica', 2021),
+(1116, 'Gemelli stellari', '2023-05-29', '2023-06-05', 'Alla scoperta di pianeti e stelle a noi simili, partendo da Mercurio, Proxima Centauri ed allontanandoci sempre più!', 'Astrologia', 2029),
+(1107, 'Una svolta rara', '2023-06-01', '2023-06-01', 'Commenti a caldo sulla scoperta del nuovo maxi-giacimento di Terre rare in Svezia', 'Geologia', 2018);
+(DEFAULT,'Il nucleare: pro e contro', 'L''energia nucleare è davvero la soluzione all''inquinamento del nostro pianeta?', 'Sostenibilità'),
+(DEFAULT,'Andare su Marte', 'Tra quanto l''uomo riuscirà nell''impresa epocale di raggiungere il pianeta rosso?', 'Astrologia');
+(DEFAULT, 'I progressi della medicina','Quali sono stati gli ultimi progressi in ambito della medicina e quali saranno i prossimi?', 'Anatomia');
+(DEFAULT, 'Geologia Applicata', '2026-04-20', '2026-04-22', 'Discussione sulle applicazioni della geologia in campo ambientale, industriale e infrastrutturale.', 'Geologia');
+
+
+
+
+INSERT INTO organizzatore VALUES
+('albertomoro@libero.it', 'Professore', 'Alberto', 'Moro', 'Università degli Studi di Salerno'),
+('giandomenicolavazza@gmail.com', 'Dottore', 'Giandomenico', 'Lavazza', 'Università di Napoli Federico II'),
+('s.nerano@docenti.unina.it', 'Professoressa', 'Sofia', 'Nerano', 'Università di Napoli Federico II');
+
+
+insert into partecipanti values
+		
+
+
+insert into keynote_speaker values
+('giorgioparisi@unina.it', 'Professor', 'Giorgio', 'Parisi', 'Università di Napoli Federico II'),
+('mfeliciadelaurentis@gmail.com', 'Ricercatrice', 'Mariafelicia', 'De Laurentis', 'INFN'),
+('antoniomarinelli@gmail.com', 'Dottore', 'Antonio', 'Marinelli', 'CNR'),
+('ilaria.mazzini@igag.cnr.it', 'Ricercatrice', 'Ilaria', 'Mazzini', 'IGAG'),
+('grazia.caielli@igag.cnr.it', 'Ricercatrice', 'Grazia', 'Caielli', 'IGAG'),
+('filippomaria.zerbi@inaf.cnr.it', 'Direttore', 'Filippo Maria', 'Zerbi', 'INAF'),
+('adele.romano@uniroma1.it', 'Professoressa','Adele', 'Romano', 'Università di Roma La Sapienza');
+
+
+
+INSERT INTO persone 
+VALUES 
+('lorenza.donati@uniroma2.it', 'Professoressa', 'Lorenza', 'Donati', 'Università degli Studi di Roma Tor Vergata'),
+('aurelio.mancini@uniroma2.it', 'Professore', 'Aurelio', 'Mancini', 'Università degli Studi di Roma Tor Vergata'),
+('giulia.ricci@uniroma1.it', 'Dottoressa', 'Giulia', 'Ricci', 'Università degli Studi di Roma La Sapienza'),
+('claudio.marinelli@unige.it', 'Professore', 'Claudio', 'Marinelli', 'Università degli Studi di Genova'),
+('giovanna.canepa@unige.it', 'Dottoressa', 'Giovanna', 'Canepa', 'Università degli Studi di Genova'),
+('matteo.cardin@unive.it', 'Professore', 'Matteo', 'Cardin', 'Università degli Studi di Venezia Ca Foscari'),
+('lorenzo.sartori@unive.it', 'Ricercatore', 'Lorenzo', 'Sartori', 'Università degli Studi di Venezia Ca Foscari'),
+('alba.trevisan@unive.it', 'Professoressa', 'Alba', 'Trevisan', 'Università degli Studi di Venezia Ca Foscari'),
+('sofia.ballarin@unipd.it', 'Professoressa', 'Sofia', 'Ballarin', 'Università degli Studi di Padova'),
+('alessandro.masiero@unipd.it', 'Dottore', 'Alessandro', 'Msiero', 'Università degli Studi di Padova'),
+('paolo.verdi@unimi.it', 'Professore', 'Paolo', 'Verdi', 'Università degli Studi di Milano'),
+('luca.cocolin@uniud.it', 'Dottore', 'Luca', 'Cocolin', 'Università degli Studi di Udine'),
+('marco.drigo@uniud.it', 'Dottore', 'Marco', 'Drigo', 'Università degli Studi di Udine'),
+('alberto.cescon@units.it', 'Dottore', 'Alberto', 'Cescon', 'Università degli Studi di Trieste'),
+('chiara.grieco@unica.it', 'Dottoressa', 'Chiara', 'Grieco', 'Università degli Studi di Cagliari'),
+('alberto.piras@unica.it', 'Dottore', 'Alberto', 'Piras', 'Università degli Studi di Cagliari'),
+('francesco.tozzi@unica.it', 'Dottore', 'Francesco', 'Tozzi', 'Università degli Studi di Cagliari'),
+('valeria.russo@unitn.it', 'Dottoressa', 'Valeria', 'Russo', 'Università degli Studi di Trento'),
+('mario.rossi@unito.it', 'Dottore', 'Mario', 'Rossi', 'Università degli Studi di Torino'),
+('anna.bianchi@unifi.it', 'Professoressa', 'Anna', 'Bianchi', 'Università degli Studi di Firenze'),
+('andrea.ratti@unifi.it', 'Professore', 'Andrea', 'Ratti', 'Università degli Studi di Firenze'),
+('marco.costa@unifi.it', 'Ricercatore', 'Marco', 'Costa', 'Università degli Studi di Firenze'),
+('giulia.giordano@unimi.it', 'Dottoressa', 'Giulia', 'Giordano', 'Università degli Studi di Milano'),
+('luca.romano@unipd.it', 'Professore', 'Luca', 'Romano', 'Università degli Studi di Padova'),
+('claudia.ferrari@unimib.it', 'Dottoressa', 'Claudia', 'Ferrari', 'Università di Milano-Bicocca'),
+('marco.rizzo@uniba.it', 'Dottore', 'Marco', 'Rizzo', 'Università degli Studi di Bari Aldo Moro'),
+('martina.esposito@unina.it', 'Dottoranda', 'Martina', 'Esposito', 'Università di Napoli Federico II'),
+('paola.doria@unina.it', 'Dottoranda', 'Paola', 'Doria', 'Università di Napoli Federico II'),
+('roberto.moretti@unito.it', 'Professore', 'Roberto', 'Moretti', 'Università degli Studi di Torino'),
+('giulia.fabbri@univr.it', 'Ricercatrice', 'Giulia', 'Fabbri', 'Università degli Studi di Verona'),
+('davide.lombardi@unimi.it', 'Professore', 'Davide', 'Lombardi', 'Università degli Studi di Milano'),
+('federico.santoro@unina.it', 'Professore', 'Federico', 'Santoro', 'Università di Napoli Federico II'),
+('matteo.lombardo@unina.it', 'Ricercatore', 'Matteo', 'Lombardo', 'Università di Napoli Federico II'),
+('federico.bianco@unige.it', 'Professore', 'Federico', 'Bianco', 'Università degli Studi di Genova'),
+('federica.bocchetti@unina.it', 'Professoressa', 'Federica', 'Bocchetti', 'Università di Napoli Federico II'),
+('alessandra.fiore@unina.it', 'Professoressa', 'Alessandra', 'Fiore', 'Università di Napoli Federico II'),
+('marianna.solinas@uniss.it', 'Professoressa', 'Marianna', 'Solinas', 'Università di Sassari'),
+('marta.arcopinto@uniss.it', 'Ricercatrice', 'Marta', 'Arcopinto', 'Università degli Studi di Sassari'),
+('giuseppe.rosa@uniba.it', 'Ricercatore', 'Giuseppe', 'Rosa', 'Università degli Studi di Bari Aldo Moro'),
+('gabriele.gentile@unimi.it', 'Professore', 'Gabriele', 'Gentile', 'Università degli Studi di Milano'),
+('sara.amato@unimi.it', 'Dottoranda', 'Sara', 'Amato', 'Università degli Studi di Milano'),
+('riccardo.greco@unina.it', 'Ricercatore', 'Riccardo', 'Greco', 'Università di Napoli Federico II'),
+('chiara.bernardi@unipd.it', 'Professoressa', 'Chiara', 'Bernardi', 'Università degli Studi di Padova'),
+('lorenzo.neri@unibo.it', 'Dottore', 'Lorenzo', 'Neri', 'Università di Bologna'),
+('beatrice.rinaldi@unimi.it', 'Dottoranda', 'Beatrice', 'Rinaldi', 'Università degli Studi di Milano'),
+('andrea.deluca@unisa.it', 'Professore', 'Andrea', 'De Luca', 'Università degli Studi di Salerno'),
+('elena.basile@univaq.it', 'Ricercatrice', 'Elena', 'Basile', 'Università degli Studi dell''Aquila'),
+('emanuele.rizzo@unipa.it', 'Professore', 'Emanuele', 'Rizzo', 'Università degli Studi di Palermo'),
+('giovanni.fulco@unipa.it', 'Professore', 'Giovanni', 'Fulco', 'Università degli Studi di Palermo'),
+('martina.pagano@unisalento.it', 'Ricercatrice', 'Martina', 'Pagano', 'Università del Salento'),
+('simone.giorgi@uniba.it', 'Ricercatore', 'Simone', 'Giorgi', 'Università degli Studi di Bari Aldo Moro'),
+('silvia.marini@unipg.it', 'Professoressa', 'Silvia', 'Marini', 'Università degli Studi di Perugia'),
+('francesco.fontana@unisi.it', 'Professore', 'Francesco', 'Fontana', 'Università degli Studi di Siena'),
+('giorgia.lombardi@unimi.it', 'Dottoranda', 'Giorgia', 'Lombardi', 'Università degli Studi di Milano'),
+('luca.marino@unimib.it', 'Professore', 'Luca', 'Marino', 'Università di Milano-Bicocca'),
+('valentina.esposito@unisannio.it', 'Professoressa', 'Valentina', 'Esposito', 'Università degli Studi del Sannio'),
+('fabrizio.vitali@unibs.it', 'Professore', 'Fabrizio', 'Vitali', 'Università degli Studi di Brescia'),
+('stefano.rinaldi@unipi.it', 'Professore', 'Stefano', 'Rinaldi', 'Università di Pisa'),
+('michele.pardini@unipi.it', 'Professore', 'Michele', 'Pardini', 'Università di Pisa'),
+('silvia.mancini@unitn.it', 'Professoressa', 'Silvia', 'Mancini', 'Università degli Studi di Trento'),
+('giovanni.serra@univpm.it', 'Professore', 'Giovanni', 'Serra', 'Università Politecnica delle Marche');
+('alfredo.nappi@univpm.it', 'Professore', 'Alfredo', 'Nappi', 'Università Politecnica delle Marche');
+
+
+
+
+INSERT INTO sessioni VALUES
+    (100001, '2023-04-27', '2023-04-27', 'Giandomenico Lavazza', 'giorgioparisi@unina.it', 1000),
+    (100002, '2023-04-27', '2023-04-27', 'Sofia Nerano', 'mfeliciadelaurentis@gmail.com', 1000),
+    (100004, '2023-04-28', '2023-04-28', 'Sofia Nerano', 'mfeliciadelaurentis@gmail.com', 1000),
+    (100003, '2023-04-28', '2023-04-27', 'Giandomenico Lavazza', 'antoniomarinelli@gmail.com', 1000),
+    (110701, '2023-06-01', '2023-06-01', 'Alfonso Di Bene', 'vittoria.cerasi@unimib.it', 1107),
+    (110702, '2023-06-01', '2023-06-01', 'Alfonso Di Bene', 'elisa.rancati@unimib.it', 1107),
+    (111202, '2023-03-12', '2023-03-12', 'Elisa Di Bonito', 'johnkrasinski@gmail.com', 1112),
+    (111203, '2023-04-12', '2023-04-12', 'Elisa Di Bonito', 'johnkrasinski@gmail.com', 1112),
+    (111204, '2023-04-12', '2023-04-12', 'Elisa Di Bonito', 'johnkrasinski@gmail.com', 1112);
+   
+
+
+
+
+('100101', '2023-12-27', '2023-12-27', 'chiara.grieco@unica.it', 'alberto.piras@unica.it', '1001', 'CeSAR'),
+('100102', '2023-12-28', '2023-12-28', 'chiara.grieco@unica.it', 'francesco.tozzi@unica.it', '1001', 'Edif. A'),
+
+('100201', '2023-05-17', '2023-05-17', 'anna.bianchi@unifi.it', 'francesco.fontana@unisi.it', '1002', 'Aula E10'),
+('100202', '2023-05-18', '2023-05-19', 'anna.bianchi@unifi.it', 'stefano.rinaldi@unipi.it', '1002', 'Pad. SUD'),
+
+('100301', '2024-02-13', '2024-02-14', 'alessandra.fiore@unina.it', 'matteo.lombardo@unina.it', '1003', 'Aula Grassi'),
+('100302', '2024-02-14', '2024-02-14', 'alessandra.fiore@unina.it', 'riccardo.greco@unina.it', '1003', 'Aula Grassi'),
+('100303', '2024-02-15', '2024-02-15', 'federico.santoro@unina.it', 'andrea.deluca@unisa.it', '1003', 'Aula 2'),
+
+('100401', '2023-12-02', '2023-12-02', 'marco.drigo@uniud.it', '1004', 'Edif. 1'),
+('100402', '2023-12-02', '2023-12-02', 'marco.drigo@uniud.it', 'giulia.fabbri@univr.it', '1004', 'Edif. 1'),
+('100403', '2023-12-03', '2023-12-03', 'alberto.cescon@units.it', 'giulia.fabbri@univr.it', '1004', 'Edif. 1'),
+('100404', '2023-12-03', '2023-12-03', 'alberto.cescon@units.it', '1004', 'Edif. 1'),
+
+('100501', '2023-09-18', '2023-09-20', 'francesco.fontana@unisi.it', '1005', 'Sala Zonta'),
+('100502', '2023-09-21', '2023-09-21', 'lorenzo.neri@unibo.it', '1005', 'Sala Zonta'),
+('100503', '2023-09-22', '2023-09-23', 'andrea.ratti@unifi.it', 'marco.costa@unifi.it', '1005', 'Sala Radis'),
+('100504', '2023-09-24', '2023-09-24', 'francesco.fontana@unisi.it', 'marco.costa@unifi.it', '1005', 'Sala Radis'),
+
+('102001', '2023-10-17', '2023-10-17', 'marianna.solinas@uniss.it', '1020', 'Aula Magna'),
+('102002', '2023-10-17', '2023-10-18', 'marianna.solinas@uniss.it', 'marta.arcopinto@uniss.it', '1020', 'Aula Magna'),
+('102003', '2023-10-19', '2023-10-20', 'alberto.piras@unica.it', '1020', 'Aula Magna'),
+
+('102101', '2023-05-10', '2023-05-10', 'claudia.ferrari@unimib.it', '1021', 'Pad. Ovest'),
+('102102', '2023-05-11', '2023-05-12', 'claudia.ferrari@unimib.it', 'paolo.verdi@unimi.it', '1021', 'Pad. Ovest'),
+('102103', '2023-05-12', '2023-05-12', 'claudia.ferrari@unimib.it', '1021', 'Pad. Ovest'),
+
+('102201', '2023-09-24', '2023-09-24', 'andrea.deluca@unisa.it', 'simone.giorgi@uniba.it', '1022', 'Aula Fermi'),
+('102202', '2023-09-24', '2023-09-24', 'andrea.deluca@unisa.it', '1022', 'Aula Fermi'),
+('102203', '2023-09-25', '2023-09-26', 'federico.santoro@unina.it', '1022', 'Aula Fermi'),
+('102204', '2023-09-26', '2023-09-26', 'federico.santoro@unina.it', 'matteo.lombardo@unina.it', '1022', 'Aula A4'),
+('102205', '2023-09-26', '2023-09-27', 'alessandra.fiore@unina.it', 'martina.esposito@unina.it', '1022', 'Aula A4'),
+
+('102301', '2023-11-27', '2023-11-27', 'federica.bocchetti@unina.it', '1023', 'Edif. 6'),
+('102302', '2023-11-28', '2023-11-29', 'federica.bocchetti@unina.it', 'paola.doria@unina.it', '1023', 'Edif. 6'),
+('102303', '2023-11-30', '2023-11-30', 'valentina.esposito@unisannio.it', '1023', 'Edif. 6'),
+
+('110001', '2023-03-20', '2023-03-21', 'michele.pardini@unipi.it', '1100', 'Pad. 3'),
+('110002', '2023-03-22', '2023-03-22', 'stefano.rinaldi@unipi.it', 'elena.basile@univaq.it', '1100', 'Pad. 3'),
+
+('110101', '2023-04-25', '2023-04-25', 'matteo.cardin@unive.it', 'lorenzo.sartori@unive.it', '1101', 'Sala Verde'),
+('110102', '2023-04-26', '2023-04-26', 'matteo.cardin@unive.it', '1101', 'Sala Verde'),
+('110103', '2023-04-27', '2023-04-28', 'alba.trevisan@unive.it', '1101', 'Sala Azzurra'),
+('110104', '2023-04-29', '2023-04-29', 'sofia.ballarin@unipd.it', '1101', 'Sala Azzurra'),
+('110105', '2023-04-29', '2023-04-30', 'sofia.ballarin@unipd.it', 'alessandro.masiero@unipd.it', '1101', 'Sala Verde'),
+
+('110201', '2023-06-18', '2023-06-19', 'marco.rizzo@uniba.it', 'giuseppe.rosa@uniba.it', '1102', 'Aula 3'),
+('110202', '2023-06-20', '2023-06-20', 'marco.rizzo@uniba.it', 'simone.giorgi@uniba.it', '1102', 'Aula 3'),
+
+('110301', '2023-08-02', '2023-08-02', 'claudio.marinelli@unige.it', '1103', 'Pad. A1'),
+('110302', '2023-08-02', '2023-08-02', 'giovanna.canepa@unige.it', '1103', 'Pad. A1'),
+
+('110401', '2023-03-24', '2023-03-25', 'lorenza.donati@uniroma2.it', '1104', 'Pad. F'),
+('110402', '2023-03-25', '2023-03-25', 'lorenza.donati@uniroma2.it', 'giulia.ricci@uniroma1.it', '1104', 'Pad. F'),
+('110403', '2023-03-25', '2023-03-25', 'aurelio.mancini@uniroma2.it', '1104', 'Pad. D'),
+
+('110501', '2023-05-15', '2023-05-15', 'mario.rossi@unito.it', '1105', 'Aula B2'),
+('110502', '2023-05-15', '2023-05-15', 'roberto.moretti@unito.it', '1105', 'Aula B4'),
+('110503', '2023-05-16', '2023-05-18', 'mario.rossi@unito.it', 'sara.amato@unimi.it', '1105', 'Aula B2'),
+('110504', '2023-05-19', '2023-05-19', 'mario.rossi@unito.it', 'roberto.moretti@unito.it', '1105', 'Aula B4'),
+
+('110601', '2023-10-20', '2023-10-21', 'giovanni.serra@univpm.it', '1106', 'Sala S1'),
+('110602', '2023-10-22', '2023-10-23', 'giovanni.serra@univpm.it', 'elena.basile@univaq.it', '1106', 'Sala S1'),
+('110603', '2023-10-23', '2023-10-23', 'alfredo.nappi@univpm.it', 'elena.basile@univaq.it', '1106', 'Sala S1'),
+
+('110701', '2023-06-01', '2023-06-01', 'silvia.marini@unipg.it', '1107', 'Edif. 3A'),
+('110702', '2023-06-01', '2023-06-01', 'lorenzo.neri@unibo.it', '1107', 'Edif. 3C'),
+
+('110801', '2023-12-10', '2023-12-10', 'emanuele.rizzo@unipa.it', '1108', 'Sala Polifunzionale 1'),
+('110802', '2023-12-11', '2023-12-11', 'giovanni.fulco@unipa.it', '1108', 'Sala Polifunzionale 1'),
+('110803', '2023-12-12', '2023-12-12', 'giovanni.fulco@unipa.it', 'emanuele.rizzo@unipa.it', '1108', 'Sala Polifunzionale 3'),
+
+//1106 AGGIORNARE DATA
+//1021 AGGIORNARE COLLOCAZ 2027
+//1101 AGGIORNARE COLLOCAZ 2035
+//1102 AGGIORNARE COLLOCAZ 2032
+//1103 AGGIORNARE COLLOCAZ 2036
+//1105 AGGIORNARE COLLOCAZ 2037
+//1106 AGGIORNARE COLLOCAZ 2038
+//1107 AGGIORNARE COLLOCAZ 2039
+//1108 AGGIORNARE COLLOCAZ 2026
+// AGGIORNARE OCCORRENZE 2028
+
+INSERT INTO enti VALUES
+('Università degli Studi di Salerno'),
+('CNR'),
+('ENEA'),
+('INAF'),
+('Università degli Studi di Bologna'),
+('Politecnico di Milano'),
+('Università degli Studi di Palermo'),
+('Università Ca'' Foscari di Venezia'),
+('ARCADIS Italia'),
+('IGAG'),
+('INGV'),
+('INFN'),
+('Università di Napoli Federico II'),
+('Università di Roma La Sapienza'),
+('Università di Milano-Bicocca'),
+('Google LLC'),
+('Università degli Studi di Firenze');
