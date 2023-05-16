@@ -1,3 +1,5 @@
+
+
 ('1003', 'L''Atomica di Oppenheimer', '13-02-2024', '15-02-2024', 'Chi, come e cosa portò la creazione dell''ordigno nucleare.', 'Fisica'),
 ('1004', 'Attraversare un wormhole', '02-12-2023', '03-12-2023', 'Alla scoperta dei "tunnel spaziali" ipotizzati da Einstein e Ross che permetterebbero il viaggio nel tempo', 'Astrologia'),
 ('1005', 'La teoria delle stringhe', '18-09-2023', '24-09-2023', 'Su cosa si basa e perché è così importante.', 'Fisica');
@@ -234,3 +236,9 @@ INSERT INTO enti VALUES
 ('Università di Milano-Bicocca'),
 ('Google LLC'),
 ('Università degli Studi di Firenze');
+
+INSERT INTO db_token VALUES
+('DHSB546€TR43F#?A'),
+('123!BFO€8A$B124N'),
+('%IB8F27VNM^34_S5');
+
